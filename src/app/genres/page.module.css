@@ -1,0 +1,150 @@
+.genres-container {
+  margin-top: 64px;
+  width: 100%;
+  padding: max(1%, 8px) max(2.5%, 8px);
+  display: grid;
+  gap: 32px;
+  user-select: none;
+}
+
+.loading-grid {
+  margin-top: 64px;
+  width: 100%;
+  padding: max(1%, 8px) max(2.5%, 8px);
+  display: grid;
+  gap: 32px;
+  user-select: none;
+}
+
+.loading-gradient {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  background: rgb(17,17,17);
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(17,17,17,1) 50%, rgba(0,0,0,0) 100%);
+  background-size: 1000% 100%;
+  animation: loading-gradient-move 1.3s linear infinite;
+}
+
+.genre-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.genre-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.genre-icon-container {
+  width: max(24px, 1.8vw);
+  height: max(24px, 1.8vw);
+  opacity: 0.6;
+  position: relative;
+  margin-bottom: 1vw;
+}
+
+.genre-name {
+  font-weight: 900;
+  font-size: max(21px, 1.6vw);
+}
+
+.genre-description {
+    font-size: max(14px, 1vw);
+}
+
+.genre-link:hover .genre-name {
+    color: #dd202d;
+}
+
+.selector-container {
+    display: flex;
+    justify-content: center;
+    padding: 32px 0;
+  }
+  
+  .selector {
+    display: flex;
+    width: fit-content;
+    gap: 8px;
+  }
+  
+  .selector-go-to {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .selector-page-active {
+    width: 32px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: #dd202d;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .selector-page-inactive {
+    width: 32px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .selector-page-inactive:hover, .selector-go-to:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  @keyframes loading-gradient-move {
+    0% {
+      background-position: right;
+    }
+
+    100% {
+      background-position: left;
+    }
+  }
+  
+  @media (min-width: 650px) {
+    .genres-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .loading-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+    .genre-icon-container {
+      margin-bottom: 0.6vw;
+    }
+  }
+  
+  @media (min-width: 1100px) {
+    .genres-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .loading-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+
+    .genre-icon-container {
+      margin-bottom: 0.45vw;
+    }
+  }
