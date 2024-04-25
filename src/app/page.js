@@ -14,7 +14,7 @@ export default function Home() {
     useEffect(() => {
         async function getMostRecent() {
             try {
-                const response = await fetch('https://gamescript-pi.vercel.app/mostRecentGames',
+                const response = await fetch('https://gamescript-backend.onrender.com/mostRecentGames',
                 {
                 method: 'GET'
                 });
@@ -27,7 +27,7 @@ export default function Home() {
 
         async function getUserFavorites() {
             try {
-                const response = await fetch('https://gamescript-pi.vercel.app/userFavorites',
+                const response = await fetch('https://gamescript-backend.onrender.com/userFavorites',
                 {
                   method: 'GET'
                 });
@@ -40,7 +40,7 @@ export default function Home() {
 
         async function getCriticFavorites() {
             try {
-                const response = await fetch('https://gamescript-pi.vercel.app/criticFavorites',
+                const response = await fetch('https://gamescript-backend.onrender.com/criticFavorites',
                 {
                   method: 'GET'
                 });
@@ -53,7 +53,7 @@ export default function Home() {
 
         async function getOverallFavorites() {
             try {
-                const response = await fetch('https://gamescript-pi.vercel.app/overallFavorites',
+                const response = await fetch('https://gamescript-backend.onrender.com/overallFavorites',
                 {
                   method: 'GET'
                 });
