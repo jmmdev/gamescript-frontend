@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../components/header";
 import styles from './page.module.css';
 import Image from "next/image";
@@ -8,7 +8,6 @@ import Footer from "../components/footer";
 
 export default function Home() {
     const [genres, setGenres] = useState(null);
-    const windowDimensions = useRef();
 
     useEffect(() => {
         async function getGenres() {
@@ -25,10 +24,6 @@ export default function Home() {
             } catch(e) {
                 console.log(e.message);
             }
-        }
-
-        if (typeof window !== 'undefined') {
-            windowDimensions.current = {width: window.innerWidth, height: window.innerHeight};
         }
 
         getGenres();
@@ -56,15 +51,11 @@ export default function Home() {
                 </div>
             );
         }
-
-        let loadingComps;
-        let headerHeight;
-        let descHeight;
         
         if (typeof window !== 'undefined') {
-            loadingComps = [];
-            headerHeight = Math.max(21, windowDimensions.current.width * 0.016);
-            descHeight = Math.max(14, windowDimensions.current.width * 0.01);
+            const loadingComps = [];
+            const headerHeight = Math.max(21, window.innerWidth * 0.016);
+            const descHeight = Math.max(14, window.innerWidth * 0.01);
 
             for (let i=0; i<30; i++) {
                 loadingComps.push(
