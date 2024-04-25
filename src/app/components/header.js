@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {IoMenu} from 'react-icons/io5';
 
-
-
 export default function Header({isDynamic}) {
     let threshold = 0;
     const [opacityRatio, setOpacityRatio] = useState(0);

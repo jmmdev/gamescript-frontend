@@ -6,7 +6,7 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
     const [cover, setCover] = useState(null);
 
     useEffect(() => {
-        fetch(`https://gamescript-pi.vercel.app/coverByGameId/${game.cover}`, 
+        fetch(`https://gamescript-backend.onrender.com/coverByGameId/${game.cover}`, 
         {
             method: 'GET',
         })

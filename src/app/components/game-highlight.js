@@ -11,7 +11,7 @@ export default function GameHighlight() {
       useEffect(() => {
           async function getMostRecentGames() {
               try {
-                  const response = await fetch('https://gamescript-pi.vercel.app/randomGames',
+                  const response = await fetch('https://gamescript-backend.onrender.com/randomGames',
                   {
                     method: 'GET'
                   });
@@ -27,7 +27,7 @@ export default function GameHighlight() {
       useEffect(() => {
             async function getScreenshot(id) {
               try {
-                  const response = await fetch(`https://gamescript-pi.vercel.app/screenshot/${id}`, 
+                  const response = await fetch(`https://gamescript-backend.onrender.com/screenshot/${id}`, 
                   {
                       method: 'GET',
                   });

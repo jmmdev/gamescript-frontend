@@ -20,7 +20,7 @@ export default function Home() {
     useEffect(() => {
         async function getTheme() {
             try {
-                const response = await fetch(`https://gamescript-pi.vercel.app/theme/${params.slug}`,
+                const response = await fetch(`https://gamescript-backend.onrender.com/theme/${params.slug}`,
                 {
                     method: 'GET'
                 });
@@ -47,14 +47,14 @@ export default function Home() {
     useEffect(() => {
         async function getThemeGames() {
             try {
-                const response = await fetch(`https://gamescript-pi.vercel.app/gamesByTheme/${theme._id}/page/${params.number}`,
+                const response = await fetch(`https://gamescript-backend.onrender.com/gamesByTheme/${theme._id}/page/${params.number}`,
                 {
                     method: 'GET'
                 });
                 const games = await response.json();
                 
                 for (let g of games.games) {
-                    const cover = await fetch(`https://gamescript-pi.vercel.app/coverByGameId/${g.cover}`, {method: 'GET'});
+                    const cover = await fetch(`https://gamescript-backend.onrender.com/coverByGameId/${g.cover}`, {method: 'GET'});
                     const coverObj = await cover.json();
                     g.cover = coverObj;
                 }
