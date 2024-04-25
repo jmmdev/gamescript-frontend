@@ -79,7 +79,7 @@ export default function Home() {
                         setShowGameDetails({show: true, value: index});
                     }}>
                         <div className={styles['cover-thumbnail']} style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}}>
-                            <Image src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${g.cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
+                            <Image loading="lazy" src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${g.cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
                         </div>
                         <div className={styles['game-details']}>
                             <p className={styles['game-name']}>{g.name}</p>

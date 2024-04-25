@@ -72,7 +72,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
                     method: 'GET',
                 });
                 const image = await response.json();
-                screenshots.push(<Image src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/${image.image_id}.jpg`} fill sizes="100%" alt="screenshot.jpg" priority/>);
+                screenshots.push(<Image loading="lazy" src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/${image.image_id}.jpg`} fill sizes="100%" alt="screenshot.jpg" priority/>);
               }
               setScreenshots(screenshots);
           } catch (e) {

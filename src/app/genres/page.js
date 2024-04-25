@@ -37,7 +37,7 @@ export default function Home() {
                     <Link key={g._id} className={styles['genre-link']} href={{pathname: `/genres/${g.slug}/page/1`}}>
                         <div className={styles['genre-header']}>
                             <div className={styles['genre-icon-container']}>
-                                <Image src={`/assets/categories/genres/${g.slug}.png`} fill sizes="100%" alt="icon.png"/>
+                                <Image loading="lazy" src={`/assets/categories/genres/${g.slug}.png`} fill sizes="100%" alt="icon.png"/>
                             </div>
                             <p className={styles['genre-name']}>{g.name}</p>
                         </div>

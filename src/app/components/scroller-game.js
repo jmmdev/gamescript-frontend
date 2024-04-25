@@ -27,7 +27,7 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
                     }
                 }}>
                     <div style={{width: '100%', height: '100%', position: 'relative'}}>
-                        <Image src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
+                        <Image loading="lazy" src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
                     </div>
                 </button>
             )

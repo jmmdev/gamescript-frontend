@@ -41,7 +41,7 @@ export default function Header({isDynamic}) {
             return (
                 <div className={styles['alt-header']}>
                     <Link className={styles['alt-logo']} href={{pathname: '/'}}>
-                        <Image src={'/assets/logo.png'} fill priority sizes="100%" alt="alt-logo.png" />
+                        <Image loading="lazy" src={'/assets/logo.png'} fill priority sizes="100%" alt="alt-logo.png" />
                     </Link>
                     <button className={styles['header-menu-button']} onClick={() => setShowMenu(!showMenu)}>
                         <IoMenu />
@@ -51,7 +51,7 @@ export default function Header({isDynamic}) {
         return (
             <div className={styles['header-left']}>
                 <Link className={styles.logo} href={{pathname: '/'}}>
-                    <Image src={'/assets/logo.png'} fill priority sizes="100%" alt="logo.png" />
+                    <Image loading="lazy" src={'/assets/logo.png'} fill priority sizes="100%" alt="logo.png" />
                 </Link>
                 <div className={styles['header-links']}>
                     <Link className={styles['header-button']} href={{pathname: '/genres'}}>
