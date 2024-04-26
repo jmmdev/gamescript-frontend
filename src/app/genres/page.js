@@ -34,7 +34,7 @@ export default function Home() {
             const genreComps = [];
             for (let g of genres) {
                 genreComps.push( 
-                    <Link key={g._id} className={styles['genre-link']} href={`/genres/${g.slug}/page/1`} as={`/genres/${g.slug}/page/1`}>
+                    <a key={g._id} className={styles['genre-link']} href={{pathname: `/genres/${g.slug}/page/1`}}>
                         <div className={styles['genre-header']}>
                             <div className={styles['genre-icon-container']}>
                                 <Image loading="lazy" src={`/assets/categories/genres/${g.slug}.png`} fill sizes="100%" alt="icon.png"/>
@@ -42,7 +42,7 @@ export default function Home() {
                             <p className={styles['genre-name']}>{g.name}</p>
                         </div>
                         <p className={styles['genre-description']}>{g.description}</p>
-                    </Link>
+                    </a>
                 )
             }
             return (    

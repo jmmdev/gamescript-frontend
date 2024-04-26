@@ -18,7 +18,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
     useEffect(() => {
         async function getGameLanguages() {
             try {
-                const response = await fetch(`https://gamescript-backend.vercel.app/languagesByGameId/${game._id}`,
+                const response = await fetch(`https://gamescript-backend.onrender.com/languagesByGameId/${game._id}`,
                 {
                     method: 'GET'
                 });
@@ -33,7 +33,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
             const res = [];
             for (let g of game.genres) {
                 try {
-                    const response = await fetch(`https://gamescript-backend.vercel.app/genre/${g}`,
+                    const response = await fetch(`https://gamescript-backend.onrender.com/genre/${g}`,
                     {
                         method: 'GET'
                     });
@@ -50,7 +50,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
             const res = [];
             for (let t of game.themes) {
                 try {
-                    const response = await fetch(`https://gamescript-backend.vercel.app/theme/${t}`,
+                    const response = await fetch(`https://gamescript-backend.onrender.com/theme/${t}`,
                     {
                         method: 'GET'
                     });
@@ -67,7 +67,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
           const screenshots = [];
           try {
               for (let screenshot of game.screenshots) {
-                const response = await fetch(`https://gamescript-backend.vercel.app/screenshot/${screenshot}`, 
+                const response = await fetch(`https://gamescript-backend.onrender.com/screenshot/${screenshot}`, 
                 {
                     method: 'GET',
                 });
@@ -120,9 +120,9 @@ export default function ShowGameDetails({game, setShowGameDetails}){
         for (let [i, g] of genres.entries()) {
             res.push(
                 <div style={{display: 'flex'}} key={`g${g._id}`}>
-                    <Link className={styles['game-tag-link']} href={`/genres/${g.slug}/page/${1}`} as={`/genres/${g.slug}/page/${1}`}>
+                    <a className={styles['game-tag-link']} href={{pathname: `/genres/${g.slug}/page/${1}`}}>
                         <p>{g.name}</p>
-                    </Link>
+                    </a>
                     {(i < genres.length - 1 || (themes && themes.length > 0)) && <p>,&nbsp;</p>}
                 </div>
             );
@@ -131,9 +131,9 @@ export default function ShowGameDetails({game, setShowGameDetails}){
         for (let [j, t] of themes.entries()) {
             res.push(
                 <div style={{display: 'flex'}} key={`t${t._id}`}>
-                    <Link className={styles['game-tag-link']} href={`/themes/${t.slug}/page/${1}`} as={`/themes/${t.slug}/page/${1}`}>
+                    <a className={styles['game-tag-link']} href={{pathname: `/themes/${t.slug}/page/${1}`}}>
                         <p>{t.name}</p>
-                    </Link>
+                    </a>
                     {j < themes.length - 1 && <p>,&nbsp;</p>}
                 </div>
             );
