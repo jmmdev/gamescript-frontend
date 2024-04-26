@@ -12,7 +12,7 @@ export default function Home() {
     useEffect(() => {
         async function getGenres() {
             try {
-                const response = await fetch(`https://gamescript-backend.onrender.com/themes`,
+                const response = await fetch(`https://gamescript-backend.vercel.app/themes`,
                 {
                     method: 'GET'
                 });
