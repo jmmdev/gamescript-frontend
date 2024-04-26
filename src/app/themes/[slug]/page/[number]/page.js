@@ -133,7 +133,8 @@ export default function Home() {
             const selector = [];
 
             selector.push(
-                <Link key={'goToFirst'} className={styles['selector-page-inactive']} style={{display: actualPage !== 0 ? 'block' : 'none'}} href={{pathname: `/themes/${params.slug}/page/${1}`}}>
+                <Link key={'goToFirst'} className={styles['selector-page-inactive']} style={{display: actualPage !== 0 ? 'block' : 'none'}}
+                href={`/themes/${params.slug}/page/${1}`} as={`/themes/${params.slug}/page/${1}`}>
                     <div className={styles['go-to-container']}>
                         <LuChevronFirst size={20}/>
                     </div>
@@ -142,13 +143,15 @@ export default function Home() {
             for (let i=0; i<numPages; i++) {
                 selector.push(
                     <Link key={`goToPage${i+1}`} className={actualPage === i ? styles['selector-page-active'] : styles['selector-page-inactive']} 
-                    style={{display: i >= actualPage-1 && i <= actualPage+1 ? 'block' : 'none'}} href={{pathname: `/themes/${params.slug}/page/${i+1}`}}>
+                    style={{display: i >= actualPage-1 && i <= actualPage+1 ? 'block' : 'none'}} href={`/themes/${params.slug}/page/${i+1}`}
+                    as={`/themes/${params.slug}/page/${i+1}`}>
                         {i+1}
                     </Link>
                 )
             }
             selector.push(
-                <Link key={'goToLast'} className={styles['selector-page-inactive']} style={{display: actualPage !== numPages-1 ? 'block' : 'none'}} href={{pathname: `/themes/${params.slug}/page/${numPages}`}}>
+                <Link key={'goToLast'} className={styles['selector-page-inactive']} style={{display: actualPage !== numPages-1 ? 'block' : 'none'}}
+                href={`/themes/${params.slug}/page/${numPages}`} as={`/themes/${params.slug}/page/${numPages}`}>
                     <div className={styles['go-to-container']}>
                         <LuChevronLast size={20}/>
                     </div>

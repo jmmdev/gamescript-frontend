@@ -40,7 +40,7 @@ export default function Header({isDynamic}) {
         if (layout === 1)
             return (
                 <div className={styles['alt-header']}>
-                    <Link className={styles['alt-logo']} href={{pathname: '/'}}>
+                    <Link className={styles['alt-logo']} href={'/'} as={'/'}>
                         <Image loading="lazy" src={'/assets/logo.png'} fill priority sizes="100%" alt="alt-logo.png" />
                     </Link>
                     <button className={styles['header-menu-button']} onClick={() => setShowMenu(!showMenu)}>
@@ -50,14 +50,14 @@ export default function Header({isDynamic}) {
             )
         return (
             <div className={styles['header-left']}>
-                <Link className={styles.logo} href={{pathname: '/'}}>
+                <Link className={styles.logo} href={'/'} as={'/'}>
                     <Image loading="lazy" src={'/assets/logo.png'} fill priority sizes="100%" alt="logo.png" />
                 </Link>
                 <div className={styles['header-links']}>
-                    <Link className={styles['header-button']} href={{pathname: '/genres'}}>
+                    <Link className={styles['header-button']} href={'/genres'} as={'/genres'}>
                         <p>Genres</p>
                     </Link>
-                    <Link className={styles['header-button']} href={{pathname: '/themes'}}>
+                    <Link className={styles['header-button']} href={'/themes'} as={'/themes'}>
                         <p>Themes</p>
                     </Link>
                 </div>
