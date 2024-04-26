@@ -127,7 +127,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
                 </div>
             );
         }
-
+        //hola
         for (let [j, t] of themes.entries()) {
             res.push(
                 <div style={{display: 'flex'}} key={`t${t._id}`}>
