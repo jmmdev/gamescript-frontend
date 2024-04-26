@@ -120,9 +120,9 @@ export default function ShowGameDetails({game, setShowGameDetails}){
         for (let [i, g] of genres.entries()) {
             res.push(
                 <div style={{display: 'flex'}} key={`g${g._id}`}>
-                    <a className={styles['game-tag-link']} href={{pathname: `/dummy/genres/${g.slug}/page/${1}`}}>
+                    <Link className={styles['game-tag-link']} href={{pathname: `/genres/${g.slug}/page/${1}`}}>
                         <p>{g.name}</p>
-                    </a>
+                    </Link>
                     {(i < genres.length - 1 || (themes && themes.length > 0)) && <p>,&nbsp;</p>}
                 </div>
             );
@@ -131,9 +131,9 @@ export default function ShowGameDetails({game, setShowGameDetails}){
         for (let [j, t] of themes.entries()) {
             res.push(
                 <div style={{display: 'flex'}} key={`t${t._id}`}>
-                    <a className={styles['game-tag-link']} href={{pathname: `/dummy/themes/${t.slug}/page/${1}`}}>
+                    <Link className={styles['game-tag-link']} href={{pathname: `/themes/${t.slug}/page/${1}`}}>
                         <p>{t.name}</p>
-                    </a>
+                    </Link>
                     {j < themes.length - 1 && <p>,&nbsp;</p>}
                 </div>
             );

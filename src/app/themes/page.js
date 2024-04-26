@@ -34,7 +34,7 @@ export default function Home() {
             const themeComps = [];
             for (let t of themes) {
                 themeComps.push( 
-                    <a key={t._id} className={styles['genre-link']} href={{pathname: `/themes/${t.slug}/page/1`}}>
+                    <Link key={t._id} className={styles['genre-link']} href={{pathname: `/themes/${t.slug}/page/1`}}>
                         <div className={styles['genre-header']}>
                             <div className={styles['genre-icon-container']}>
                                 <Image loading="lazy" src={`/assets/categories/themes/${t.slug}.png`} fill sizes="100%" alt="icon.png"/>
@@ -42,7 +42,7 @@ export default function Home() {
                             <p className={styles['genre-name']}>{t.name}</p>
                         </div>
                         <p className={styles['genre-description']}>{t.description}</p>
-                    </a>
+                    </Link>
                 )
             }
             return (    

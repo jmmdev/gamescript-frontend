@@ -40,9 +40,9 @@ export default function Header({isDynamic}) {
         if (layout === 1)
             return (
                 <div className={styles['alt-header']}>
-                    <a className={styles['alt-logo']} href={{pathname: '/'}}>
+                    <Link className={styles['alt-logo']} href={{pathname: '/'}}>
                         <Image loading="lazy" src={'/assets/logo.png'} fill priority sizes="100%" alt="alt-logo.png" />
-                    </a>
+                    </Link>
                     <button className={styles['header-menu-button']} onClick={() => setShowMenu(!showMenu)}>
                         <IoMenu />
                     </button>
@@ -50,16 +50,16 @@ export default function Header({isDynamic}) {
             )
         return (
             <div className={styles['header-left']}>
-                <a className={styles.logo} href={{pathname: '/'}}>
+                <Link className={styles.logo} href={{pathname: '/'}}>
                     <Image loading="lazy" src={'/assets/logo.png'} fill priority sizes="100%" alt="logo.png" />
-                </a>
+                </Link>
                 <div className={styles['header-links']}>
-                    <a className={styles['header-button']} href={{pathname: '/genres'}}>
+                    <Link className={styles['header-button']} href={{pathname: '/genres'}}>
                         <p>Genres</p>
-                    </a>
-                    <a className={styles['header-button']} href={{pathname: '/themes'}}>
+                    </Link>
+                    <Link className={styles['header-button']} href={{pathname: '/themes'}}>
                         <p>Themes</p>
-                    </a>
+                    </Link>
                 </div>
             </div>
         )
@@ -69,12 +69,12 @@ export default function Header({isDynamic}) {
         if (showMenu) {
             return (
                 <div className={styles['header-menu']}>
-                    <a className={styles['header-button']} href={{pathname: '/genres'}}>
+                    <Link className={styles['header-button']} href={{pathname: '/genres'}}>
                         <p>Genres</p>
-                    </a>
-                    <a className={styles['header-button']} href={{pathname: '/themes'}}>
+                    </Link>
+                    <Link className={styles['header-button']} href={{pathname: '/themes'}}>
                         <p>Themes</p>
-                    </a>
+                    </Link>
                 </div>
             )
         }
