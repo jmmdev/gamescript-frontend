@@ -23,16 +23,23 @@ export default function Home() {
         }
         getData();
     }, [])
+
+    const GetScrollerData = ({games, index, title}) => {
+        if (data) {
+            return <GameScroller scrollerGames={games} scrollerIndex={index} title={title} />
+        }
+        return null;
+    }
     
     return (
         <main>
             <Header isDynamic={true}/>
             <GameHighlight />
             <div className={styles['scroller-list']}>
-                <GameScroller scrollerGames={data.mostRecent} scrollerIndex={0} title={'Latest releases'} />
-                <GameScroller scrollerGames={data.overallFavorites} scrollerIndex={1} title={'Prime picks'}/>
-                <GameScroller scrollerGames={data.userFavorites} scrollerIndex={2} title={'Fan favorites'} />
-                <GameScroller scrollerGames={data.criticFavorites} scrollerIndex={3} title={'Expert selections'}/>
+                <GetScrollerData games={data.mostRecent} index={0} title={'Latest releases'} />
+                <GetScrollerData games={data.overallFavorites} index={1} title={'Prime picks'}/>
+                <GetScrollerData games={data.userFavorites} index={2} title={'Fan favorites'} />
+                <GetScrollerData games={data.criticFavorites} index={3} title={'Expert selections'}/>
             </div>
             <Footer />
         </main>
