@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useState} from "react";
-import Header from "../../../../components/header";
+import Header from "../../components/header";
 import { useParams } from "next/navigation";
 import styles from './page.module.css';
 import Image from "next/image";
@@ -20,7 +20,7 @@ export default function Home() {
     useEffect(() => {
         async function getGenre() {
             try {
-                const response = await fetch(`https://gamescript-backend.vercel.app/genre/${params.slug}`,
+                const response = await fetch(`https://gamescript-backend.vercel.app/genre/${params.slug[0]}`,
                 {
                     method: 'GET'
                 });
@@ -47,7 +47,7 @@ export default function Home() {
     useEffect(() => {
         async function getGenreGames() {
             try {
-                const response = await fetch(`https://gamescript-backend.vercel.app/gamesByGenre/${genre._id}/page/${params.number}`,
+                const response = await fetch(`https://gamescript-backend.vercel.app/gamesByGenre/${genre._id}/page/${params.slug[1]}`,
                 {
                     method: 'GET'
                 });
@@ -59,7 +59,7 @@ export default function Home() {
                     g.cover = coverObj;
                 }
                 setGames(games);
-                setActualPage(params.number - 1);
+                setActualPage(params.slug[1] - 1);
             
             } catch(e) {
                 console.log(e.message);
@@ -133,7 +133,7 @@ export default function Home() {
             const selector = [];
 
             selector.push(
-                <Link key={'goToFirst'} className={styles['selector-page-inactive']} style={{display: actualPage !== 0 ? 'block' : 'none'}} href={{pathname: `/genres/${params.slug}/page/${1}`}}>
+                <Link key={'goToFirst'} className={styles['selector-page-inactive']} style={{display: actualPage !== 0 ? 'block' : 'none'}} href={`/genres/${params.slug[0]}/1`}>
                     <div className={styles['go-to-container']}>
                         <LuChevronFirst size={20}/>
                     </div>
@@ -142,13 +142,13 @@ export default function Home() {
             for (let i=0; i<numPages; i++) {
                 selector.push(
                     <Link key={`goToPage${i+1}`} className={actualPage === i ? styles['selector-page-active'] : styles['selector-page-inactive']} 
-                    style={{display: i >= actualPage-1 && i <= actualPage+1 ? 'block' : 'none'}} href={{pathname: `/genres/${params.slug}/page/${i+1}`}}>
+                    style={{display: i >= actualPage-1 && i <= actualPage+1 ? 'block' : 'none'}} href={{pathname: `/genres/${params.slug[0]}/${i+1}`}}>
                         {i+1}
                     </Link>
                 )
             }
             selector.push(
-                <Link key={'goToLast'} className={styles['selector-page-inactive']} style={{display: actualPage !== numPages-1 ? 'block' : 'none'}} href={{pathname: `/genres/${params.slug}/page/${numPages}`}}>
+                <Link key={'goToLast'} className={styles['selector-page-inactive']} style={{display: actualPage !== numPages-1 ? 'block' : 'none'}} href={`/genres/${params.slug[0]}/${numPages}`}>
                     <div className={styles['go-to-container']}>
                         <LuChevronLast size={20}/>
                     </div>
