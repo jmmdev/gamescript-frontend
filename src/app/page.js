@@ -7,67 +7,22 @@ import styles from './page.module.css';
 import Footer from "./components/footer";
 
 export default function Home() {
-    const [mostRecent, setMostRecent] = useState(null);
-    const [userFavorites, setUserFavorites] = useState(null);
-    const [criticFavorites, setCriticFavorites] = useState(null);
-    const [overallFavorites, setOverallFavorites] = useState(null);
+    const [data, setData] = useState(null);
     useEffect(() => {
-        async function getMostRecent() {
+        async function getData() {
             try {
-                const response = await fetch('https://gamescript-backend.vercel.app/mostRecentGames',
+                const response = await fetch('https://gamescript-backend.vercel.app/homeData',
                 {
                 method: 'GET'
                 });
                 const json = await response.json();
-                setMostRecent(json);
+                setData(json);
             } catch(e) {
                 return null;
             }
         }
 
-        async function getUserFavorites() {
-            try {
-                const response = await fetch('https://gamescript-backend.vercel.app/userFavorites',
-                {
-                  method: 'GET'
-                });
-                const json = await response.json();
-                setUserFavorites(json);
-            } catch(e) {
-                return null;
-            }
-        }
-
-        async function getCriticFavorites() {
-            try {
-                const response = await fetch('https://gamescript-backend.vercel.app/criticFavorites',
-                {
-                  method: 'GET'
-                });
-                const json = await response.json();
-                setCriticFavorites(json);
-            } catch(e) {
-                return null;
-            }
-        }
-
-        async function getOverallFavorites() {
-            try {
-                const response = await fetch('https://gamescript-backend.vercel.app/overallFavorites',
-                {
-                  method: 'GET'
-                });
-                const json = await response.json();
-                setOverallFavorites(json);
-            } catch(e) {
-                return null;
-            }
-        }
-
-        getMostRecent();
-        getUserFavorites();
-        getCriticFavorites();
-        getOverallFavorites();
+        getData();
     }, [])
     
     return (
@@ -75,10 +30,10 @@ export default function Home() {
             <Header isDynamic={true}/>
             <GameHighlight />
             <div className={styles['scroller-list']}>
-                <GameScroller scrollerGames={mostRecent} scrollerIndex={0} title={'Latest releases'} />
-                <GameScroller scrollerGames={overallFavorites} scrollerIndex={1} title={'Prime picks'}/>
-                <GameScroller scrollerGames={userFavorites} scrollerIndex={2} title={'Fan favorites'} />
-                <GameScroller scrollerGames={criticFavorites} scrollerIndex={3} title={'Expert selections'}/>
+                <GameScroller scrollerGames={data.mostRecent} scrollerIndex={0} title={'Latest releases'} />
+                <GameScroller scrollerGames={data.overallFavorites} scrollerIndex={1} title={'Prime picks'}/>
+                <GameScroller scrollerGames={data.userFavorites} scrollerIndex={2} title={'Fan favorites'} />
+                <GameScroller scrollerGames={data.criticFavorites} scrollerIndex={3} title={'Expert selections'}/>
             </div>
             <Footer />
         </main>
