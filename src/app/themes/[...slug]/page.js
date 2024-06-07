@@ -148,7 +148,7 @@ export default function Home() {
                 )
             }
             selector.push(
-                <Link key={'goToLast'} className={styles['selector-page-inactive']} style={{display: actualPage !== numPages-1 ? 'block' : 'none'}} href={{pathname: `/themes/${params.slug[0]}/${numPages}`}}>
+                <Link key={'goToLast'} className={styles['selector-page-inactive']} style={{display: actualPage !== numPages-1 ? 'block' : 'none'}} href={`/themes/${params.slug[0]}/${numPages}`}>
                     <div className={styles['go-to-container']}>
                         <LuChevronLast size={20}/>
                     </div>
