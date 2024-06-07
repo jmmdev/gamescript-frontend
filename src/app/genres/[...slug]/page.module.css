@@ -73,6 +73,10 @@
   .game-name {
     font-weight: 700;
     font-size: max(21px, 1.8vw);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   .game-summary {
