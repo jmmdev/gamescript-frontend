@@ -60,7 +60,7 @@ export default function Home() {
                     g.cover = coverObj;
                 }
                 setGames(games);
-                setActualPage(params.number - 1);
+                setActualPage(params.slug[1] - 1);
             
             } catch(e) {
                 console.log(e.message);
