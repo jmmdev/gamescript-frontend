@@ -9,6 +9,8 @@ import {FaPlay} from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function ShowGameDetails({game, setShowGameDetails}){
+    const BASE_URL = process.env.BASE_URL;
+
     const [loading, setLoading] = useState(true);
     const [languages, setLanguages] = useState(null);
     const [screenshots, setScreenshots] = useState(null);
@@ -18,7 +20,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
     useEffect(() => {
         async function getGameLanguages() {
             try {
-                const response = await fetch(`https://gamescript-backend.onrender.com/languagesByGameId/${game._id}`,
+                const response = await fetch(`${BASE_URL}/languagesByGameId/${game._id}`,
                 {
                     method: 'GET'
                 });
@@ -33,7 +35,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
             const res = [];
             for (let g of game.genres) {
                 try {
-                    const response = await fetch(`https://gamescript-backend.onrender.com/genre/${g}`,
+                    const response = await fetch(`${BASE_URL}/genre/${g}`,
                     {
                         method: 'GET'
                     });
@@ -50,7 +52,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
             const res = [];
             for (let t of game.themes) {
                 try {
-                    const response = await fetch(`https://gamescript-backend.onrender.com/theme/${t}`,
+                    const response = await fetch(`${BASE_URL}/theme/${t}`,
                     {
                         method: 'GET'
                     });
@@ -67,7 +69,7 @@ export default function ShowGameDetails({game, setShowGameDetails}){
           const screenshots = [];
           try {
               for (let screenshot of game.screenshots) {
-                const response = await fetch(`https://gamescript-backend.onrender.com/screenshot/${screenshot}`, 
+                const response = await fetch(`${BASE_URL}/screenshot/${screenshot}`, 
                 {
                     method: 'GET',
                 });

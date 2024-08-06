@@ -3,10 +3,12 @@ import styles from '../page.module.css';
 import Image from "next/image";
 
 export default function ScrollerGame({game, index, setActiveGame, setShowGameDetails}) {
+    const BASE_URL = process.env.BASE_URL;
+
     const [cover, setCover] = useState(null);
 
     useEffect(() => {
-        fetch(`https://gamescript-backend.vercel.app/coverByGameId/${game.cover}`, 
+        fetch(`${BASE_URL}/coverByGameId/${game.cover}`, 
         {
             method: 'GET',
         })

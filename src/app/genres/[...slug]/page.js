@@ -9,6 +9,7 @@ import {LuChevronFirst, LuChevronLast} from 'react-icons/lu';
 import Link from 'next/link';
 
 export default function Home() {
+    const BASE_URL = process.env.BASE_URL;
 
     const [genre, setGenre] = useState(null);
     const [games, setGames] = useState(null);
@@ -20,7 +21,7 @@ export default function Home() {
     useEffect(() => {
         async function getGenre() {
             try {
-                const response = await fetch(`https://gamescript-backend.vercel.app/genre/${params.slug[0]}`,
+                const response = await fetch(`${BASE_URL}/genre/${params.slug[0]}`,
                 {
                     method: 'GET'
                 });
@@ -47,14 +48,14 @@ export default function Home() {
     useEffect(() => {
         async function getGenreGames() {
             try {
-                const response = await fetch(`https://gamescript-backend.vercel.app/gamesByGenre/${genre._id}/page/${params.slug[1]}`,
+                const response = await fetch(`${BASE_URL}/gamesByGenre/${genre._id}/page/${params.slug[1]}`,
                 {
                     method: 'GET'
                 });
                 const games = await response.json();
                 
                 for (let g of games.games) {
-                    const cover = await fetch(`https://gamescript-backend.vercel.app/coverByGameId/${g.cover}`, {method: 'GET'});
+                    const cover = await fetch(`${BASE_URL}/coverByGameId/${g.cover}`, {method: 'GET'});
                     const coverObj = await cover.json();
                     g.cover = coverObj;
                 }

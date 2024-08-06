@@ -7,12 +7,14 @@ import Link from "next/link";
 import Footer from "../components/footer";
 
 export default function Home() {
+    const BASE_URL = process.env.BASE_URL;
+
     const [themes, setThemes] = useState(null);
 
     useEffect(() => {
         async function getGenres() {
             try {
-                const response = await fetch(`https://gamescript-backend.vercel.app/themes`,
+                const response = await fetch(`${BASE_URL}/themes`,
                 {
                     method: 'GET'
                 });

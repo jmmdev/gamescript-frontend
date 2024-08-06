@@ -5,13 +5,15 @@ import {FaPlay, FaInfoCircle, FaChevronLeft, FaChevronRight} from 'react-icons/f
 import ShowGameDetails from "./show-game-details";
 
 export default function GameHighlight() {
+    const BASE_URL = process.env.BASE_URL;
+
     const [randomGames, setRandomGames] = useState(null);
     const [screenshots, setScreenshots] = useState(null);
       
       useEffect(() => {
           async function getMostRecentGames() {
               try {
-                  const response = await fetch('https://gamescript-backend.vercel.app/randomGames',
+                  const response = await fetch(`${BASE_URL}/randomGames`,
                   {
                     method: 'GET'
                   });
@@ -27,7 +29,7 @@ export default function GameHighlight() {
       useEffect(() => {
             async function getScreenshot(id) {
               try {
-                  const response = await fetch(`https://gamescript-backend.vercel.app/screenshot/${id}`, 
+                  const response = await fetch(`${BASE_URL}/screenshot/${id}`, 
                   {
                       method: 'GET',
                   });
