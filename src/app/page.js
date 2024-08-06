@@ -7,11 +7,14 @@ import styles from './page.module.css';
 import Footer from "./components/footer";
 
 export default function Home() {
+    const BASE_URL = process.env.BASE_URL;
+
     const [data, setData] = useState(null);
+
     useEffect(() => {
         async function getData() {
             try {
-                const response = await fetch('https://gamescript-backend.vercel.app/homeData',
+                const response = await fetch(`${BASE_URL}/homeData`,
                 {
                 method: 'GET'
                 });
