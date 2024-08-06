@@ -6,7 +6,7 @@ import ShowGameDetails from "./show-game-details";
 
 export default function GameHighlight() {
     const BASE_URL = process.env.BASE_URL;
-
+    
     const [randomGames, setRandomGames] = useState(null);
     const [screenshots, setScreenshots] = useState(null);
       
