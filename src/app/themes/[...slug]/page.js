@@ -21,7 +21,7 @@ export default function Home() {
     useEffect(() => {
         async function getTheme() {
             try {
-                const response = await fetch(`${BASE_URL}/${params.slug[0]}`,
+                const response = await fetch(`${BASE_URL}/theme/${params.slug[0]}`,
                 {
                     method: 'GET'
                 });
