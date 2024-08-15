@@ -7,7 +7,7 @@ import Link from "next/link";
 import Footer from "../components/footer";
 
 export default function Home() {
-    const BASE_URL = process.env.BASE_URL;
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const [genres, setGenres] = useState(null);
 

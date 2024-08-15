@@ -9,7 +9,7 @@ import {FaPlay} from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function ShowGameDetails({game, setShowGameDetails}){
-    const BASE_URL = process.env.BASE_URL;
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const [loading, setLoading] = useState(true);
     const [languages, setLanguages] = useState(null);

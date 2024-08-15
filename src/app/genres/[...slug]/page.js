@@ -9,7 +9,7 @@ import {LuChevronFirst, LuChevronLast} from 'react-icons/lu';
 import Link from 'next/link';
 
 export default function Home() {
-    const BASE_URL = process.env.BASE_URL;
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const [genre, setGenre] = useState(null);
     const [games, setGames] = useState(null);

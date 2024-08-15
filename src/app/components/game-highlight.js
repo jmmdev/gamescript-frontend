@@ -5,7 +5,7 @@ import {FaPlay, FaInfoCircle, FaChevronLeft, FaChevronRight} from 'react-icons/f
 import ShowGameDetails from "./show-game-details";
 
 export default function GameHighlight() {
-    const BASE_URL = process.env.BASE_URL;
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
     
     const [randomGames, setRandomGames] = useState(null);
     const [screenshots, setScreenshots] = useState(null);

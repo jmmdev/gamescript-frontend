@@ -3,7 +3,7 @@ import styles from '../page.module.css';
 import Image from "next/image";
 
 export default function ScrollerGame({game, index, setActiveGame, setShowGameDetails}) {
-    const BASE_URL = process.env.BASE_URL;
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const [cover, setCover] = useState(null);
 
