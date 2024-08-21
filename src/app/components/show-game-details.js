@@ -120,7 +120,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
         const res = [];
 
         for (let [i, g] of genres.entries()) {
-            if (g.slug !== category.slug) {
+            if (g.slug !== category) {
                 res.push(
                     <div style={{display: 'flex'}} key={`g${g._id}`}>
                         <Link className={styles['game-tag-link']} href={`/genres/${g.slug}/1`}>
@@ -132,7 +132,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
             }
         }
         for (let [j, t] of themes.entries()) {
-            if (t.slug !== category.slug) {
+            if (t.slug !== category) {
                 res.push(
                     <div style={{display: 'flex'}} key={`t${t._id}`}>
                         <Link className={styles['game-tag-link']} href={`/themes/${t.slug}/1`}>
