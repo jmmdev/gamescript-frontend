@@ -162,7 +162,7 @@ export default function Home() {
 
     const DoShowGameDetails = () => {
         if(showGameDetails.show && showGameDetails.value !== null)
-            return <ShowGameDetails game={games.games[showGameDetails.value]} setShowGameDetails={setShowGameDetails} />
+            return <ShowGameDetails game={games.games[showGameDetails.value]} setShowGameDetails={setShowGameDetails} category={genre.slug}/>
         return null
     }
     
