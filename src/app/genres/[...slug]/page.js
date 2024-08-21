@@ -19,10 +19,6 @@ export default function Home() {
     const params = useParams();
 
     useEffect(() => {
-        setShowGameDetails({show: false, value: null});
-    }, []);
-
-    useEffect(() => {
         async function getGenre() {
             try {
                 const response = await fetch(`${BASE_URL}/genre/${params.slug[0]}`,
@@ -166,7 +162,7 @@ export default function Home() {
 
     const DoShowGameDetails = () => {
         if(showGameDetails.show && showGameDetails.value !== null)
-            return <ShowGameDetails game={games.games[showGameDetails.value]} setShowGameDetails={setShowGameDetails}/>
+            return <ShowGameDetails game={games.games[showGameDetails.value]} setShowGameDetails={setShowGameDetails} category={genre.slug}/>
         return null
     }
     

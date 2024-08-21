@@ -19,10 +19,6 @@ export default function Home() {
     const params = useParams();
 
     useEffect(() => {
-        setShowGameDetails({show: false, value: null});
-    }, []);
-
-    useEffect(() => {
         async function getTheme() {
             try {
                 const response = await fetch(`${BASE_URL}/theme/${params.slug[0]}`,
@@ -166,7 +162,7 @@ export default function Home() {
 
     const DoShowGameDetails = () => {
         if(showGameDetails.show && showGameDetails.value !== null)
-            return <ShowGameDetails game={games.games[showGameDetails.value]} setShowGameDetails={setShowGameDetails}/>
+            return <ShowGameDetails game={games.games[showGameDetails.value]} setShowGameDetails={setShowGameDetails} category={theme.slug}/>
         return null
     }
     
