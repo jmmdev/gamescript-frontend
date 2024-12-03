@@ -153,6 +153,7 @@
 }
 
 .details-summary {
+  min-height: calc(max(18px, 1.6vw) * 3);
   font-size: max(14px, 1.2vw);
   color: #fff;
   text-align: justify;
