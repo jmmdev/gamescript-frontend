@@ -41,7 +41,7 @@
   padding: 8px;
   cursor: pointer;
   color: #fff;
-  font-weight: 800;
+  font-weight: 700;
   text-decoration: none;
   text-align: center;
 }
@@ -149,7 +149,7 @@
 
 .details-name {
   font-size: max(24px, 2.2vw);
-  font-weight: 900;
+  font-weight: 700;
   color: #fff;
   line-height: max(24px, 2.2vw);
 }
@@ -223,7 +223,7 @@
 .scroller-title {
   padding: 1% calc(2.5% + 8px);
   font-size: max(24px, 2.2vw);
-  font-weight: 900;
+  font-weight: 700;
   color: #fff;
   line-height: max(24px, 2.2vw);
 }
