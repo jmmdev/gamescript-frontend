@@ -17,7 +17,6 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
                 <div id={'sc-' + scrollerIndex} className={styles['recent-navigation']}>
                     <GetScrollButtons child={
                         <div id={'rc-' + scrollerIndex} key={4} ref={scrollerRef} className={styles['recent-container']}>
-                            <div className={styles['recent-container-background']} />
                             <GetScrollerGames setActiveGame={externalFlags ? externalFlags.setActiveGame : setActiveGame} setShowGameDetails={setShowGameDetails}/>
                         </div>
                     } scrollPosition={scrollPosition} setScrollPosition={setScrollPosition} />
