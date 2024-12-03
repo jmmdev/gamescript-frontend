@@ -84,7 +84,7 @@ export default function Header({isDynamic}) {
     return (
         <>
         <div className={styles.header}
-        style={{background: isDynamic ? `linear-gradient(0deg, rgba(17,17,17,${opacityRatio}) 0%, rgba(0,0,0,1) 100%)` : `linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(0,0,0,1) 100%)`}}>
+        style={{background: isDynamic ? `linear-gradient(0deg, rgba(17,24,39,${opacityRatio}) 0%, rgba(3,7,18,1) 100%)` : `linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(3,7,18,1) 100%)`}}>
             <GetLayout />
         </div>
         <GetHeaderMenu />
