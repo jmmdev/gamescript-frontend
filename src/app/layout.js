@@ -1,9 +1,9 @@
-import { Martel_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const martel = Martel_Sans({ 
-  weight: ['200', '300', '400', '600', '700', '800', '900'],
-  subsets: ["latin"], 
+const myFont = Poppins({ 
+  subsets: ["latin"],
+  variable: "--my-font",
 });
 
 export const metadata = {
@@ -14,7 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={martel.className}>{children}</body>
+      <body className={`${myFont.variable} font-sans antialiased bg-neutral-900`}>
+        {children}
+      </body>
     </html>
   );
 }
