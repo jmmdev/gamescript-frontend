@@ -221,8 +221,8 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                     More tags:&nbsp;<GetOtherInfo />
                                 </div>
                                 <div className="w-full flex justify-end">
-                                <button className={"flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-white hover:bg-gray-300"}>
-                                    <FaPlay size={14} />
+                                <button className={"flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-white hover:bg-gray-300 text-black"}>
+                                    <FaPlay />
                                     <p>Play</p>
                                 </button>
                                 </div>
