@@ -61,12 +61,12 @@ export default function GameHighlight() {
 
       const GetGameDetails = ({game, setShowGameDetails}) => {
         return (
-            <div className={styles.details}>
-                <p className={styles['details-name']}>{game.name}</p>
-                <p className={styles['details-summary']}>
+            <div className="h-1/2 flex flex-col justify-center gap-2 p-2 pt-0 ">
+                <p className="text-2xl font-bold text-white">{game.name}</p>
+                <p className="h-16 text-sm text-justify truncate">
                     {game.summary}
                 </p>
-                <div className={styles['details-buttons']}>
+                <div className="flex gap-2">
                     <button className={`${styles['details-button']} ${styles.play}`}>
                         <FaPlay size={14} />
                         <p>Play</p>

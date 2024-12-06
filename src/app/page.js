@@ -3,7 +3,6 @@ import React, {useEffect, useState} from "react";
 import Header from "./components/header";
 import GameHighlight from "./components/game-highlight";
 import GameScroller from "./components/game-scroller";
-import styles from './page.module.css';
 import Footer from "./components/footer";
 
 export default function Home() {
@@ -38,7 +37,7 @@ export default function Home() {
         <main>
             <Header isDynamic={true}/>
             <GameHighlight />
-            <div className={styles['scroller-list']}>
+            <div className="flex flex-col gap-12 pt-12">
                 <GetScrollerData games={'mostRecent'} index={0} title={'Latest releases'} />
                 <GetScrollerData games={'overallFavorites'} index={1} title={'Prime picks'}/>
                 <GetScrollerData games={'userFavorites'} index={2} title={'Fan favorites'} />
