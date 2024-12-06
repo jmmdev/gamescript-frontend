@@ -67,11 +67,11 @@ export default function GameHighlight() {
                     <p className="h-14 text-xl text-white text-justify line-clamp-2">{game.summary}</p>
                 </div>
                 <div className="flex gap-4">
-                    <button className={"flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-white"}>
+                    <button className={"flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-white hover:bg-gray-300"}>
                         <FaPlay />
                         <p>Play</p>
                     </button>
-                    <button className="flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-gray-600 text-white"
+                    <button className="flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-gray-600 text-white hover:bg-gray-500"
                         onClick={e => {
                             document.body.style.overflowY = "hidden";
                             setShowGameDetails(true);
@@ -111,7 +111,7 @@ export default function GameHighlight() {
                 <>
                     {screenshots[activeGame]}
                     <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-98%" />
-                    <div className={styles['highlight-inner-container']}>
+                    <div className="w-full h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)]">
                         <div className={styles['highlight-navigation']}>
                             <button className={styles['highlight-navigation-button']} onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
                                 <FaChevronLeft />
