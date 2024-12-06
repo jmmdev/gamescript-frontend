@@ -122,8 +122,8 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
         for (let [i, g] of genres.entries()) {
             if (g.slug !== category) {
                 res.push(
-                    <div style={{display: 'flex'}} key={`g${g._id}`}>
-                        <Link className="text-sm font-extralight text-[#fffb] no-underline" href={`/genres/${g.slug}/1`}>
+                    <div key={`g${g._id}`} className="flex">
+                        <Link className="text-sm font-extralight text-[#fffb] no-underline hover:text-[#dd202d]" href={`/genres/${g.slug}/1`}>
                             <p>{g.name}</p>
                         </Link>
                         {(i < genres.length - 1 || (themes && themes.length > 0)) && <p>,&nbsp;</p>}
@@ -134,8 +134,8 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
         for (let [j, t] of themes.entries()) {
             if (t.slug !== category) {
                 res.push(
-                    <div style={{display: 'flex'}} key={`t${t._id}`}>
-                        <Link className="text-sm font-extralight text-[#fffb] no-underline" href={`/themes/${t.slug}/1`}>
+                    <div key={`t${t._id}`} className="flex">
+                        <Link className="text-sm font-extralight text-[#fffb] no-underline hover:text-[#dd202d]" href={`/themes/${t.slug}/1`}>
                             <p>{t.name}</p>
                         </Link>
                         {j < themes.length - 1 && <p>,&nbsp;</p>}
