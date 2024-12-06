@@ -61,7 +61,7 @@ export default function GameHighlight() {
       const GetGameDetails = ({game, setShowGameDetails}) => {
         return (
             <div className="h-1/2 flex flex-col justify-center gap-4 p-4 pt-0 ">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-3">
                     <p className="text-4xl font-bold text-white">{game.name}</p>
                     <p className="h-14 text-xl text-white text-justify line-clamp-2">{game.summary}</p>
                 </div>
