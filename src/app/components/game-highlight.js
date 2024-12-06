@@ -67,16 +67,16 @@ export default function GameHighlight() {
                     <p className="h-14 text-xl text-white text-justify line-clamp-2">{game.summary}</p>
                 </div>
                 <div className="flex gap-4">
-                    <button className={"flex items-center gap-3 px-4 py-2 rounded text-sm font-semibold bg-white"}>
+                    <button className={"flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-white"}>
                         <FaPlay />
                         <p>Play</p>
                     </button>
-                    <button className="flex items-center gap-3 px-4 py-2 rounded text-sm font-semibold bg-gray-600 text-white"
+                    <button className="flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-gray-600 text-white"
                         onClick={e => {
                             document.body.style.overflowY = "hidden";
                             setShowGameDetails(true);
                         }}>
-                        <FaInfoCircle className="text-base" />
+                        <FaInfoCircle />
                         <p>Details</p>
                     </button>
                 </div>
