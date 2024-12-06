@@ -179,14 +179,14 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                             <IoClose size={22} />
                         </button>
                     </div>
-                    <div className="w-full max-w-3xl max-h-[min(70vh,600px)] overflow-y-auto p-4 rounded bg-gray-900 text-white">
+                    <div className="w-full max-w-3xl max-h-[min(70vh,_600px)] overflow-y-auto p-4 rounded bg-gray-900 text-white">
                         <div className="flex justify-between items-center">
                             <div className="flex gap-2">
                                 <p className="text-2xl font-extrabold">{game.name}</p>
                                 <div className="flex items-center gap-0.5">
                                     <GetRating />
                                     <FaStar size={16} color="#fd0"/>
-                                    <p className="text-xs h-[0.5rem]">({game.total_rating_count})</p>
+                                    <p className="text-xs h-[0.75rem]">({game.total_rating_count})</p>
                                 </div>
                             </div>
                         </div>
