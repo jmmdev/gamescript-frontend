@@ -540,24 +540,8 @@
 }
 
 @media (hover: hover) {
-  .highlight-navigation-button:hover {
-    color: #fff;
-  }
-
   .recent:hover > * {
     box-shadow: 0 0 0 4px #dd202d;
-  }
-
-  .header-button:hover {
-    color: #dd202d;
-  }
-
-  .play:hover {
-    background-color: #ddd;
-  }
-  
-  .info:hover {
-    background-color: #888;
   }
 
   .recent-navigation-button:hover {
