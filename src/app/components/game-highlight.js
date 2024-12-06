@@ -110,7 +110,7 @@ export default function GameHighlight() {
             return (
                 <>
                     {screenshots[activeGame]}
-                    <div className="w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-98%" />
+                    <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-90%" />
                     <div className={styles['highlight-inner-container']}>
                         <div className={styles['highlight-navigation']}>
                             <button className={styles['highlight-navigation-button']} onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
