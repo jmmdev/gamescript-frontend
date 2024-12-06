@@ -110,7 +110,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                 output += `${lg}, `;
             }
             return (
-                <b className="w-full text-xs">Supported languages: <span className="text-xs font-thin">{output.substring(0, output.length-2)}</span></b>
+                <b className="w-full text-xs">Supported languages: <span className="text-xs font-extralight">{output.substring(0, output.length-2)}</span></b>
             )
         }
         return null
@@ -171,7 +171,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
             return (
                 <>
                     <div className="w-full max-w-3xl flex justify-end">
-                        <button className="flex text-gray-300 text-lg font-semibold items-center gap-0.5" onClick={() => {
+                        <button className="flex text-gray-300 text-lg font-semibold items-center gap-0.5 hover:text-white" onClick={() => {
                             setShowGameDetails(false);
                             document.body.style.overflowY = "auto";
                             }}>
