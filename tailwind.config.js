@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gradientColorStopPositions: {
+        98: '98%',
+      },
       fontFamily: {
         sans: ['var(--my-font)'],
       }
