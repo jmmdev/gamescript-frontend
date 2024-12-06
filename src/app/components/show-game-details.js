@@ -193,7 +193,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                         <div className="flex flex-col w-full mt-3">
                             <div id="game-info-container" className="w-full flex flex-col gap-3">
                                 <p className="w-full text-sm font-light text-justify">{game.summary}</p>
-                                <div className={`relative w-full min-h-[${screenshotWidth * 9 / 16}], border border-[#fff6]`}>
+                                <div className={`relative w-full border border-[#fff6]`} style={{minHeight: screenshotWidth * 9 / 16}}>
                                     {screenshots[activeScreenshot]}
                                     <div className="w-full p-4 absolute top-1/2 left-1/2 z-50 flex justify-between items-center -translate-x-1/2 -translate-y-1/2">
                                         <button className="w-11 bg-[#000a] rounded aspect-square text-white flex items-center justify-center"
