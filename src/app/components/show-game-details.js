@@ -196,7 +196,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                 <div className={`relative w-full border border-[#fff6]`} style={{minHeight: screenshotWidth * 9 / 16}}>
                                     {screenshots[activeScreenshot]}
                                     <div className="w-full p-4 absolute top-1/2 left-1/2 z-50 flex justify-between items-center -translate-x-1/2 -translate-y-1/2">
-                                        <button className="w-11 bg-[#000a] rounded aspect-square text-white flex items-center justify-center"
+                                        <button className="w-11 bg-[#000a] rounded aspect-square text-white flex items-center justify-center hover:text-[#dd202d]"
                                             onClick={() => {
                                                     if (activeScreenshot > 0)
                                                         setActiveScreenshot(activeScreenshot-1)
@@ -205,7 +205,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                                 }}>
                                                     <IoMdArrowDropleft size={40} />
                                         </button>
-                                        <button className="w-11 bg-[#000a] rounded aspect-square text-white flex items-center justify-center"
+                                        <button className="w-11 bg-[#000a] rounded aspect-square text-white flex items-center justify-center hover:text-[#dd202d]"
                                             onClick={() => {
                                                     if (activeScreenshot < screenshots.length-1)
                                                         setActiveScreenshot(activeScreenshot+1)
