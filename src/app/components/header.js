@@ -89,7 +89,7 @@ export default function Header({isDynamic}) {
 
     return (
         <>
-        <div className="flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-40"
+        <div className="flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30"
         style={{background: isDynamic ? `linear-gradient(0deg, rgba(17,24,39,${opacityRatio}) 0%, rgba(3,7,18,1) 100%)` : `linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(3,7,18,1) 100%)`}}>
             <GetLayout />
         </div>

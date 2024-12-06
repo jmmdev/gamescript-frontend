@@ -110,7 +110,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                 output += `${lg}, `;
             }
             return (
-                <b className={styles['supported-header']}>Supported languages: <span className={styles['supported-languages']}>{output.substring(0, output.length-2)}</span></b>
+                <b className="w-full text-xs">Supported languages: <span className="text-xs font-thin">{output.substring(0, output.length-2)}</span></b>
             )
         }
         return null
@@ -123,7 +123,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
             if (g.slug !== category) {
                 res.push(
                     <div style={{display: 'flex'}} key={`g${g._id}`}>
-                        <Link className={styles['game-tag-link']} href={`/genres/${g.slug}/1`}>
+                        <Link className="text-sm font-extralight text-[#fffb] no-underline" href={`/genres/${g.slug}/1`}>
                             <p>{g.name}</p>
                         </Link>
                         {(i < genres.length - 1 || (themes && themes.length > 0)) && <p>,&nbsp;</p>}
@@ -135,7 +135,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
             if (t.slug !== category) {
                 res.push(
                     <div style={{display: 'flex'}} key={`t${t._id}`}>
-                        <Link className={styles['game-tag-link']} href={`/themes/${t.slug}/1`}>
+                        <Link className="text-sm font-extralight text-[#fffb] no-underline" href={`/themes/${t.slug}/1`}>
                             <p>{t.name}</p>
                         </Link>
                         {j < themes.length - 1 && <p>,&nbsp;</p>}
@@ -154,7 +154,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
         useEffect(() => {
             function updateWidth() {
                 if (!loading) {
-                    setScreenshotWidth(document.getElementsByClassName(styles['game-info-container'])[0].clientWidth);
+                    setScreenshotWidth(document.getElementsByClassName('game-info-container').clientWidth);
                 }
             }
             window.addEventListener('resize', updateWidth)
@@ -163,15 +163,15 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
 
         useEffect(() => {
             if (!loading) {
-                setScreenshotWidth(document.getElementsByClassName(styles['game-info-container'])[0].clientWidth);
+                setScreenshotWidth(document.getElementById('game-info-container').clientWidth);
             }
         }, [loading])
 
         if (!loading){
             return (
                 <>
-                    <div className={styles['close-container']}>
-                        <button className={styles['close-details']} onClick={() => {
+                    <div className="w-full max-w-3xl flex justify-end">
+                        <button className="flex text-gray-300 text-lg font-semibold items-center gap-0.5" onClick={() => {
                             setShowGameDetails(false);
                             document.body.style.overflowY = "auto";
                             }}>
@@ -179,24 +179,24 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                             <IoClose size={22} />
                         </button>
                     </div>
-                    <div className={styles['game-details-content']}>
-                        <div className={styles['game-info__first']}>
-                            <div style={{display: 'flex', gap: 8}}>
-                                <p className={styles['game-info__name']}>{game.name}</p>
-                                <div className={styles['game-info__score']}>
+                    <div className="w-full max-w-3xl max-h-[min(70vh,600px)] overflow-y-auto p-4 rounded bg-gray-900 text-white">
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-2">
+                                <p className="text-2xl font-extrabold">{game.name}</p>
+                                <div className="flex items-center gap-0.5">
                                     <GetRating />
                                     <FaStar size={16} color="#fd0"/>
-                                    <p className={styles['game-info__count']}>({game.total_rating_count})</p>
+                                    <p className="text-xs h-[0.5rem]">({game.total_rating_count})</p>
                                 </div>
                             </div>
                         </div>
-                        <div className={styles['game-info']}>
-                            <div className={styles['game-info-container']}>
-                                <p className={styles['game-info__summary']}>{game.summary}</p>
-                                <div style={{position: 'relative', width: '100%', minHeight: screenshotWidth * 9 / 16, border: '1px solid #fff6'}}>
+                        <div className="flex flex-col w-full mt-3">
+                            <div id="game-info-container" className="w-full flex flex-col gap-3">
+                                <p className="w-full text-sm font-light text-justify">{game.summary}</p>
+                                <div className={`relative w-full min-h[${screenshotWidth * 9 / 16}], border border-[#fff6]`}>
                                     {screenshots[activeScreenshot]}
-                                    <div className={styles['screenshot-navigation']}>
-                                        <button className={styles['screenshot-navigation-button']}
+                                    <div className="w-full p-4 absolute top-1/2 left-1/2 z-50 flex justify-between items-center -translate-x-1/2 -translate-y-1/2">
+                                        <button className="w-11 bg-[#000a] rounded aspect-square text-white flex items-center justify-center"
                                             onClick={() => {
                                                     if (activeScreenshot > 0)
                                                         setActiveScreenshot(activeScreenshot-1)
@@ -205,7 +205,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                                 }}>
                                                     <IoMdArrowDropleft size={40} />
                                         </button>
-                                        <button className={styles['screenshot-navigation-button']}
+                                        <button className="w-11 bg-[#000a] rounded aspect-square text-white flex items-center justify-center"
                                             onClick={() => {
                                                     if (activeScreenshot < screenshots.length-1)
                                                         setActiveScreenshot(activeScreenshot+1)
@@ -217,11 +217,11 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                     </div>
                                 </div>
                                 <GetSupportedLanguages />
-                                <div className={styles['game-tags']}>
+                                <div className="w-full flex flex-wrap text-sm font-light text-[#fffb]">
                                     More tags:&nbsp;<GetOtherInfo />
                                 </div>
-                                <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
-                                <button className={`${styles['play-from-details']} ${styles.play}`}>
+                                <div className="w-full flex justify-end">
+                                <button className={"flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-white hover:bg-gray-300"}>
                                     <FaPlay size={14} />
                                     <p>Play</p>
                                 </button>
@@ -233,14 +233,14 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
             )
         }
         return (
-            <div className={styles['details-loader']}>
+            <div className="w-12 aspect-square animate-spin">
                 <TbLoader2 size={48} color='#fff8' />
             </div>
         )
     }
 
         return (
-            <div className={styles['game-details-container']}>
+            <div className="fixed w-full h-screen bg-[#000a] top-0 left-0 z-40 flex flex-col justify-center items-center gap-2">
                 <GetGameDetailsPopup />
             </div>
         )
