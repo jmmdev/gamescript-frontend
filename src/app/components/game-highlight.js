@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import styles from '../page.module.css';
 import Image from "next/image";
 import {FaPlay, FaInfoCircle, FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import ShowGameDetails from "./show-game-details";
@@ -112,11 +111,11 @@ export default function GameHighlight() {
                     {screenshots[activeGame]}
                     <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-98%" />
                     <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-30">
-                        <div className={styles['highlight-navigation']}>
-                            <button className={styles['highlight-navigation-button']} onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
+                        <div className="w-full h-1/2 flex justify-between items-end px-9">
+                            <button className="text-[#fff8] text-2xl" onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
                                 <FaChevronLeft />
                             </button>
-                            <button className={styles['highlight-navigation-button']} onClick={() => setActiveGame(activeGame < randomGames.length - 1 ? activeGame + 1 : 0)}>
+                            <button className="text-[#fff8] text-2xl" onClick={() => setActiveGame(activeGame < randomGames.length - 1 ? activeGame + 1 : 0)}>
                                 <FaChevronRight />
                             </button>
                         </div>
@@ -132,7 +131,7 @@ export default function GameHighlight() {
       const GetCurrentScreenshot = () => {
         return (
             <>
-                <div className={styles['highlight-container']}>
+                <div className="relative max-w-full aspect-video">
                     <GetHighlightScroller />
                 </div>
             </>
