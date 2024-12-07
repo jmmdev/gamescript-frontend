@@ -99,7 +99,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
         if (numString.charAt(numString.length-1) === '0')
             fixedNum = Math.floor(fixedNum)
 
-        return <p>{fixedNum}</p>
+        return <p className="leading-3">{fixedNum}</p>
     }
 
     const GetSupportedLanguages = () => {
@@ -179,14 +179,12 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                         </button>
                     </div>
                     <div className="w-full max-w-3xl max-h-[min(70vh,_600px)] overflow-y-auto p-4 rounded bg-gray-900 text-white">
-                        <div className="flex justify-between items-center">
-                            <div className="flex gap-2">
-                                <p className="text-2xl font-extrabold">{game.name}</p>
-                                <div className="flex items-center gap-0.5">
-                                    <GetRating />
-                                    <FaStar size={16} color="#fd0"/>
-                                    <p className="text-xs h-[0.75rem]">({game.total_rating_count})</p>
-                                </div>
+                        <div className="flex justify-between items-center gap-3">
+                            <p className="text-2xl font-extrabold">{game.name}</p>
+                            <div className="flex items-center gap-0.5">
+                                <GetRating />
+                                <FaStar className="text-[#fd0] h-[0.75rem]"/>
+                                <p className="text-xs leading-3">({game.total_rating_count})</p>
                             </div>
                         </div>
                         <div className="flex flex-col w-full mt-3">
@@ -239,7 +237,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
     }
 
         return (
-            <div className="fixed w-full h-screen bg-[#000a] top-0 left-0 z-40 flex flex-col justify-center items-center gap-2">
+            <div className="fixed w-full h-screen bg-[#000c] top-0 left-0 z-40 flex flex-col justify-center items-center gap-2">
                 <GetGameDetailsPopup />
             </div>
         )
