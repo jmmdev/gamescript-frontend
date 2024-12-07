@@ -60,7 +60,7 @@ export default function GameHighlight() {
 
       const GetGameDetails = ({game, setShowGameDetails}) => {
         return (
-            <div className="w-full lg:w-3/5 h-1/2 flex items-center justify-between sm:flex-col sm:justify-center gap-4 p-4 pt-0 ">
+            <div className="w-full lg:w-3/5 h-1/2 flex items-center justify-between sm:flex-col sm:items-start sm:justify-center gap-4 p-4 pt-0 ">
                 <div className="flex flex-col gap-3">
                     <p className="text-3xl sm:text-4xl font-bold text-white">{game.name}</p>
                     <p className="hidden sm:block h-14 text-xl text-white text-justify line-clamp-2">{game.summary}</p>
@@ -111,7 +111,7 @@ export default function GameHighlight() {
                     {screenshots[activeGame]}
                     <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-98%" />
                     <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-20">
-                        <div className="w-full h-1/2 flex justify-between items-end px-9">
+                        <div className="w-full h-1/2 flex justify-between items-end px-3 lg:px-9">
                             <button className="text-[#fff8] text-4xl hover:text-white" onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
                                 <FaChevronLeft />
                             </button>
