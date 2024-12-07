@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import styles from '../page.module.css';
 import {FaStar} from 'react-icons/fa6';
 import {TbLoader2} from 'react-icons/tb';
 import {IoMdArrowDropleft, IoMdArrowDropright} from 'react-icons/io';

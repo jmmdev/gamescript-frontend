@@ -543,8 +543,4 @@
   .recent:hover > * {
     box-shadow: 0 0 0 4px #dd202d;
   }
-
-  .recent-navigation-button:hover {
-    color: #dd202d;
-  }
 }

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import styles from '../page.module.css';
 import Image from "next/image";
 
 export default function ScrollerGame({game, index, setActiveGame, setShowGameDetails}) {
@@ -21,7 +20,7 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
     const GetCover = () => {
         if (cover !== null) {
             return (
-                <button className={styles.recent} style={{aspectRatio: cover.width / cover.height}} onClick={() => {
+                <button className="hover:ring-4 hover:ring-[#dd202d]" style={{aspectRatio: cover.width / cover.height}} onClick={() => {
                     setActiveGame(index);
                     if (setShowGameDetails) {
                         setShowGameDetails(true);

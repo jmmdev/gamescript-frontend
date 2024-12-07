@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState} from "react";
-import styles from '../page.module.css';
 import ScrollerGame from './scroller-game';
 import ShowGameDetails from "./show-game-details";
 import {IoMdArrowDropleft, IoMdArrowDropright} from "react-icons/io";
@@ -13,10 +12,10 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const [scrollPosition, setScrollPosition] = useState('left');
         return (
             <div>
-                {title && <p className={styles['scroller-title']}>{title}</p>}
-                <div id={'sc-' + scrollerIndex} className={styles['recent-navigation']}>
+                {title && <p className="px-[2.5%] py-3 text-5xl font-bold text-white">{title}</p>}
+                <div id={'sc-' + scrollerIndex} className="w-full flex items-center pb-[2.5%] z-20">
                     <GetScrollButtons child={
-                        <div id={'rc-' + scrollerIndex} key={4} ref={scrollerRef} className={styles['recent-container']}>
+                        <div id={'rc-' + scrollerIndex} key={4} ref={scrollerRef} className="relative w-full p-2 flex overflow-x-scroll no-scrollbar gap-[2.5%] scroll-smooth">
                             <GetScrollerGames setActiveGame={externalFlags ? externalFlags.setActiveGame : setActiveGame} setShowGameDetails={setShowGameDetails}/>
                         </div>
                     } scrollPosition={scrollPosition} setScrollPosition={setScrollPosition} />
@@ -62,7 +61,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const result = [];
 
         result.push(
-           <button key={0} className={styles['recent-navigation-button']} 
+           <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]" 
            style={{visibility: scrollerRef.current && scrolled > threshold.min ? 'visible' : 'hidden'}} 
            onClick={() => {
                     scrollerRef.current.scrollLeft -= Math.floor(currentWidth * 0.975)
@@ -74,7 +73,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         result.push(child);
         
         result.push(
-            <button key={2} className={styles['recent-navigation-button']} 
+            <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
             style={{visibility: scrollerRef.current && scrolled < threshold.max ? 'visible' : 'hidden'}}
             onClick={() => {
                     scrollerRef.current.scrollLeft += Math.floor(currentWidth * 0.975)
