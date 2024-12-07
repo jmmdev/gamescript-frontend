@@ -66,7 +66,7 @@ export default function GameHighlight() {
                     <p className="hidden lg:line-clamp-2 truncate whitespace-normal text-xl text-white text-justify">{game.summary}</p>
                 </div>
                 <div className="flex gap-4">
-                    <button className="w-8 aspect-square p-2 rounded-full sm:rounded sm:w-auto sm:aspect-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-white hover:bg-gray-300">
+                    <button className="w-8 h-8 p-2 rounded-full sm:rounded sm:w-auto sm:h-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-white hover:bg-gray-300">
                         <FaPlay />
                         <p className="hidden sm:block">Play</p>
                     </button>
