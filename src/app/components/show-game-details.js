@@ -218,7 +218,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                     More tags:&nbsp;<GetOtherInfo />
                                 </div>
                                 <div className="w-full flex justify-end">
-                                <button className={"flex items-center gap-3 px-5 py-3 rounded text-lg font-semibold bg-white hover:bg-gray-300 text-black"}>
+                                <button className={"flex items-center gap-3 px-4 py-2 rounded font-semibold bg-white hover:bg-gray-300 text-black"}>
                                     <FaPlay />
                                     <p>Play</p>
                                 </button>
@@ -237,7 +237,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
     }
 
         return (
-            <div className="fixed w-full h-screen bg-[#000c] top-0 left-0 z-40 flex flex-col justify-center items-center gap-2">
+            <div className="fixed w-full h-screen bg-[#000c] top-0 left-0 z-40 flex flex-col justify-center items-center gap-2 p-4">
                 <GetGameDetailsPopup />
             </div>
         )
