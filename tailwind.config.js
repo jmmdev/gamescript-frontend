@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import plugin from 'tailwindcss/plugin';
-
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
@@ -24,10 +22,5 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    plugin(function({addVariant}) {
-      addVariant("pointer-coarse", "@media (pointer: coarse");
-      addVariant("pointer-fine", "@media (pointer: fine");
-    }),
-  ],
+  plugins: [],
 }
