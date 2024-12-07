@@ -61,7 +61,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const result = [];
 
         result.push(
-           <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]" 
+           <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] pointer-coarse:hidden" 
            style={{visibility: scrollerRef.current && scrolled > threshold.min ? 'visible' : 'hidden'}} 
            onClick={() => {
                     scrollerRef.current.scrollLeft -= Math.floor(currentWidth * 0.975)
@@ -73,7 +73,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         result.push(child);
         
         result.push(
-            <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
+            <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] pointer-coarse:hidden"
             style={{visibility: scrollerRef.current && scrolled < threshold.max ? 'visible' : 'hidden'}}
             onClick={() => {
                     scrollerRef.current.scrollLeft += Math.floor(currentWidth * 0.975)
