@@ -214,7 +214,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                     </div>
                                 </div>
                                 <GetSupportedLanguages />
-                                <div className="w-full flex flex-wrap text-sm font-light text-[#fffb]">
+                                <div className="w-full flex flex-wrap text-sm text-[#fffb]">
                                     More tags:&nbsp;<GetOtherInfo />
                                 </div>
                                 <div className="w-full flex justify-end">
