@@ -12,7 +12,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const [scrollPosition, setScrollPosition] = useState('left');
         return (
             <div>
-                {title && <p className="px-[2.5%] py-3 lg:py-4 text-3xl sm:text-4xl font-bold text-white">{title}</p>}
+                {title && <p className="px-[2.5%] py-3 lg:py-4 text-2xl sm:text-4xl font-bold text-white">{title}</p>}
                 <div id={'sc-' + scrollerIndex} className="w-full flex items-center pb-[2.5%] z-20">
                     <GetScrollButtons child={
                         <div id={'rc-' + scrollerIndex} key={4} ref={scrollerRef} className="w-full flex overflow-x-scroll no-scrollbar gap-[2.5%] scroll-smooth">
