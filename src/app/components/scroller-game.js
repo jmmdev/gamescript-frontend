@@ -20,7 +20,7 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
     const GetCover = () => {
         if (cover !== null) {
             return (
-                <button className="hover:ring-4 hover:ring-[#dd202d]" style={{aspectRatio: cover.width / cover.height}} onClick={() => {
+                <button className="w-[7.75%] hover:ring-4 hover:ring-[#dd202d]" style={{aspectRatio: cover.width / cover.height}} onClick={() => {
                     setActiveGame(index);
                     if (setShowGameDetails) {
                         setShowGameDetails(true);
