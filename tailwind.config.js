@@ -5,6 +5,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        fade: 'fadeIn 0.3s linear',
+      },
+      keyframes: () => ({
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 0.85 },
+        },
+      }),
       gradientColorStopPositions: {
         98: '98%',
       },

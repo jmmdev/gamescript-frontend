@@ -45,7 +45,7 @@ export default function GameHighlight() {
             try {
                 for (let game of randomGames) {
                     const image = await getScreenshot(game.screenshots[0]);
-                    screenshots.push(<Image key={image.image_id} src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/${image.image_id}.jpg`} fill alt="screenshot.jpg" priority/>);
+                    screenshots.push(<Image key={image.image_id} className="animate-fade" src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/${image.image_id}.jpg`} fill alt="screenshot.jpg" priority/>);
                 }
                 setScreenshots(screenshots);
             } catch (e) {
