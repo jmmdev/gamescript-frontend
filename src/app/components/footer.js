@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="w-full p-[2.5%] gap-1 flex flex-col items-center">
+        <div className="w-full px-[2.5%] py-12 gap-1 flex flex-col items-center">
             <p className="w-full text-xs text-center font-extralight text-gray-400 lg:text-sm">
                 This website is a portfolio project and not associated with any real entity. All content herein is for demonstration purposes only.
             </p>
