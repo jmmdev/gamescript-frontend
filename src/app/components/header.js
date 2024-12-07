@@ -39,7 +39,7 @@ export default function Header({isDynamic}) {
     const GetLayout = () => {
         if (layout === 1)
             return (
-                <div className="w-full flex justify-end items-center gap-1">
+                <div className="w-full flex justify-between items-center gap-1">
                     <Link className="relative w-24 aspect-[4.875]" href={{pathname: '/'}}>
                         <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                     </Link>
