@@ -4,7 +4,7 @@ export default function Footer() {
             <p className="w-full text-xs text-center font-extralight text-gray-400 lg:text-sm">
                 This website is a portfolio project and not associated with any real entity. All content herein is for demonstration purposes only.
             </p>
-            <p>
+            <p className="w-full text-xs text-center font-extralight text-gray-400 lg:text-sm">
                 All rights to the content displayed on this website are reserved by the respective owners. No infringement is intended.
             </p>
         </div>
