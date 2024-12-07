@@ -20,15 +20,16 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
     const GetCover = () => {
         if (cover !== null) {
             return (
-                <button className="basis-[18%] sm:basis-[10.3125%] lg:basis-[7.75%] grow-0 shrink-0 hover:ring-4 hover:ring-[#dd202d]" style={{aspectRatio: cover.width / cover.height}} onClick={() => {
+                <button className="group basis-[18%] sm:basis-[10.3125%] lg:basis-[7.75%] grow-0 shrink-0" style={{aspectRatio: cover.width / cover.height}} onClick={() => {
                     setActiveGame(index);
                     if (setShowGameDetails) {
                         setShowGameDetails(true);
                         document.body.style.overflowY = "hidden";
                     }
                 }}>
-                    <div style={{width: '100%', height: '100%', position: 'relative'}}>
+                    <div className="relative w-full h-full">
                         <Image loading="lazy" src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
+                        <div className="absolute w-full h-full group-hover:ring-4 group-hover:ring-[#dd202d]" />
                     </div>
                 </button>
             )
