@@ -112,10 +112,10 @@ export default function GameHighlight() {
                     <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-98%" />
                     <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-20">
                         <div className="w-full h-1/2 flex justify-between items-end px-3 lg:px-9">
-                            <button className="text-[#fff8] text-4xl hover:text-white" onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
+                            <button className="text-[#fff8] text-5xl hover:text-white" onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
                                 <FaChevronLeft />
                             </button>
-                            <button className="text-[#fff8] text-4xl hover:text-white" onClick={() => setActiveGame(activeGame < randomGames.length - 1 ? activeGame + 1 : 0)}>
+                            <button className="text-[#fff8] text-5xl hover:text-white" onClick={() => setActiveGame(activeGame < randomGames.length - 1 ? activeGame + 1 : 0)}>
                                 <FaChevronRight />
                             </button>
                         </div>
