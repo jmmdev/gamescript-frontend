@@ -179,7 +179,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                         </button>
                     </div>
                     <div className="w-full max-w-3xl max-h-[min(70vh,_600px)] overflow-y-auto p-4 rounded bg-gray-900 text-white">
-                        <div className="flex justify-between items-center gap-3">
+                        <div className="flex flex-col gap-1">
                             <p className="text-2xl font-extrabold">{game.name}</p>
                             <div className="flex items-center gap-0.5">
                                 <GetRating />
