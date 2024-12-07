@@ -464,70 +464,18 @@
 }
 
 @media (max-width: 599px) {
-  .details {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .details-name, .scroller-title {
-    font-size: max(22px, 2vw);
-  }
-
-  .details-summary {
-    display: none;
-  }
-
-  .details-button {
-    width: 32px;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 8px;
-    border-radius: 50%;
-  }
-
-  .details-button p{
-    display: none;
-  }
-
-  .recent {
-    flex: 0 0 18%;
-  }
-
   .footer p {
     font-size: 10px;
   }
 }
 
 @media (min-width: 600px) {
-  .highlight-container {
-    aspect-ratio: 16/9;
-  }
-
-  .details {
-    width: 100%;
-  }
-
-  .recent {
-    flex: 0 0 10.3125%;
-  }
-  
   .footer p {
     font-size: 10px;
   }
 }
 
 @media (min-width: 1100px) {
-  .details {
-    width: 60%;
-  }
-
-  .recent {
-    flex: 0 0 7.75%;
-  }
-
   .footer p {
     font-size: 12px;
   }
