@@ -10,12 +10,12 @@ export default function Header({isDynamic}) {
 
     useEffect(() => {
         if (showMenu) {
-            document.getElementById("menu").classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
-            document.getElementById("menu").classList.add("translate-x-0", "translate-y-full", "sm:translate-x-full", "sm:translate-y-0");
+            document.getElementById("menu").classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
+            document.getElementById("menu").classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
             return;
         }
-        document.getElementById("menu").classList.remove("translate-x-0", "translate-y-full", "sm:translate-x-full", "sm:translate-y-0");
-        document.getElementById("menu").classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
+        document.getElementById("menu").classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
+        document.getElementById("menu").classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
     }, [showMenu])
 
     useEffect(() => {
@@ -54,7 +54,7 @@ export default function Header({isDynamic}) {
                 </button>
             </div>
         </div>
-        <div id="menu" className={`fixed w-full -top-full left-0 duration-200 ease-in-out bg-gray-800 z-20 flex flex-col justify-between items-center gap-4 p-4 pt-20 sm:top-0 sm:-left-full sm:w-[14rem] sm:h-screen sm:-left-[14rem]`}>
+        <div id="menu" className={`fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-20 flex flex-col justify-between items-center gap-4 p-4 pt-20 sm:w-[14rem] sm:h-screen sm:-left-[14rem]`}>
             <div className="flex flex-col gap-3">
                 <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
                     <p className="text-sm text-white font-medium text-center">Genres</p>
