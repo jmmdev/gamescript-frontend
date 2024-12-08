@@ -12,12 +12,12 @@ export default function Header({isDynamic, categories}) {
         const menu = document.getElementById("menu");
         if (menu) {
             if (showMenu) {
-                document.getElementById("menu").classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
-                document.getElementById("menu").classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
+                menu.classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
+                menu.getElementById("menu").classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
                 return;
             }
-            document.getElementById("menu").classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
-            document.getElementById("menu").classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
+            menu.getElementById("menu").classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
+            menu.getElementById("menu").classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
         }
     }, [showMenu])
 
