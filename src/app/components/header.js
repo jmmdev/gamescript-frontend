@@ -16,7 +16,7 @@ export default function Header({isDynamic}) {
         }
         document.getElementById("menu").classList.add("translate-x-0");
         document.getElementById("menu").classList.remove("translate-x-full");
-    }, showMenu)
+    }, [showMenu])
 
     useEffect(() => {
         function updateOpacity() {
