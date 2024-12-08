@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {IoMenu} from 'react-icons/io5';
+import {IoClose, IoMenu} from 'react-icons/io5';
 
 export default function Header({isDynamic}) {
     let threshold = 0;
@@ -35,7 +35,7 @@ export default function Header({isDynamic}) {
     const GetLayout = () => {
         return (
             <div className="w-full flex justify-between items-center gap-1">
-                <Link className="relative w-24 aspect-[4.875]" href={{pathname: '/'}}>
+                <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                     <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                 </Link>
                 <button className="text-3xl text-gray-300" onClick={() => setShowMenu(!showMenu)}>
@@ -54,13 +54,23 @@ export default function Header({isDynamic}) {
     const GetSideMenu = () => {
         if (showMenu) {
             return (
-                <div className="fixed top-0 left-0 w-full h-screen lg:w-[25%] bg-gray-800 z-50 flex flex-col justify-center items-center gap-4">
-                    <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
-                        <p className="text-sm text-white font-medium text-center">Genres</p>
-                    </Link>
-                    <Link className="no-underline hover:underline" href={{pathname: '/themes'}}>
-                        <p className="text-sm text-white font-medium text-center">Themes</p>
-                    </Link>
+                <div className="fixed top-0 left-0 w-full h-screen md:w-[25%] md:max-w-[200px] bg-gray-800 z-50 flex flex-col justify-center items-center">
+                    <div classname="w-full flex items-center justify-end">
+                        <button className="text-gray-300" onClick={() => setShowMenu(false)}>
+                            <IoClose className="text-2xl" />
+                        </button>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
+                            <p className="text-sm text-white font-medium text-center">Genres</p>
+                        </Link>
+                        <Link className="no-underline hover:underline" href={{pathname: '/themes'}}>
+                            <p className="text-sm text-white font-medium text-center">Themes</p>
+                        </Link>
+                    </div>
+                    <div>
+                        Footer
+                    </div>
                 </div>
             )
         }
