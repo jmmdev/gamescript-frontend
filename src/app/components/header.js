@@ -53,7 +53,7 @@ export default function Header({isDynamic}) {
         <div className={`flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30
             ${
                 showMenu
-                    ? "bg-gray-800"
+                    ? "bg-gray-800 sm:bg-transparent"
                     : getHeaderDynamicBackground()
             }
             sm:${getHeaderDynamicBackground()}
