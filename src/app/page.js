@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import Header from "./components/header";
 import GameHighlight from "./components/game-highlight";
 import GameScroller from "./components/game-scroller";
+import Link from "next/link";
 import Footer from "./components/footer";
 
 export default function Home() {
