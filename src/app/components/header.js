@@ -15,7 +15,7 @@ export default function Header({isDynamic}) {
             return;
         }
         document.getElementById("menu").classList.add("translate-x-0", "-translate-y-full", "sm:translate-x-0", "sm:translate-y-0");
-        document.getElementById("menu").classList.remove("translate-x-0", "translate-y-full", "sm:translate-x-full", "sm:translate-y-0");
+        document.getElementById("menu").classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-full", "sm:translate-y-0");
     }, [showMenu])
 
     useEffect(() => {
