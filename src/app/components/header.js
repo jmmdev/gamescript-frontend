@@ -58,7 +58,7 @@ export default function Header({isDynamic}) {
                 <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                     <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                 </Link>
-                <button className="text-3xl text-gray-300" onClick={() => setShowMenu(!showMenu)}>
+                <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(!showMenu)}>
                     <IoMenu />
                 </button>
             </div>
