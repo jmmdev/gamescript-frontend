@@ -3,7 +3,7 @@ import Image from "next/image";
 import {FaPlay, FaInfoCircle, FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import ShowGameDetails from "./show-game-details";
 
-export default function GameHighlight({setShowMenu}) {
+export default function GameHighlight() {
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
     
     const [randomGames, setRandomGames] = useState(null);
@@ -73,7 +73,6 @@ export default function GameHighlight({setShowMenu}) {
                     <button className="w-8 aspect-square p-2 rounded-full sm:rounded sm:w-auto sm:aspect-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-gray-600 text-white hover:bg-gray-500"
                         onClick={e => {
                             document.body.style.overflowY = "hidden";
-                            setShowMenu(false);
                             setShowGameDetails(true);
                         }}>
                         <FaInfoCircle />

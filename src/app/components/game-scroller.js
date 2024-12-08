@@ -3,7 +3,7 @@ import ScrollerGame from './scroller-game';
 import ShowGameDetails from "./show-game-details";
 import {IoMdArrowDropleft, IoMdArrowDropright} from "react-icons/io";
 
-export default function GameScroller({externalFlags, scrollerGames, scrollerIndex, title, isHighlight, setShowMenu}) {
+export default function GameScroller({externalFlags, scrollerGames, scrollerIndex, title, isHighlight}) {
     const scrollerRef = useRef(null);
 
     const GetScroller = () => {
@@ -89,7 +89,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const games = [];
         if (scrollerGames) {
             scrollerGames.map((game, index) => {
-                games.push(<ScrollerGame key={game._id} game={game} index={index} setActiveGame={setActiveGame} setShowGameDetails={isHighlight ? null : setShowGameDetails} setShowMenu={setShowMenu}/>)
+                games.push(<ScrollerGame key={game._id} game={game} index={index} setActiveGame={setActiveGame} setShowGameDetails={isHighlight ? null : setShowGameDetails}/>)
             })
             return games;
         }
