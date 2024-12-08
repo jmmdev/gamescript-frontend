@@ -53,7 +53,7 @@ export default function Header({isDynamic}) {
         <div className={`flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30
             ${
                 showMenu
-                    ? "bg-gradient-to-t from-gray-800 to-gray-800"
+                    ? "bg-gradient-to-t from-gray-800 to-gray-800" 
                     : getHeaderDynamicBackground()
             }
             sm:${getHeaderDynamicBackground()}
