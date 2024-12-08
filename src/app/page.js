@@ -9,6 +9,7 @@ export default function Home() {
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const [data, setData] = useState(null);
+    const [categories, setCategories] = useState(null);
 
     useEffect(() => {
         async function getData() {
@@ -26,6 +27,22 @@ export default function Home() {
         getData();
     }, [])
 
+    useEffect(() => {
+        async function getCategories() {
+            try {
+                const response = await fetch(`${BASE_URL}/categories`,
+                {
+                method: 'GET'
+                });
+                const json = await response.json();
+                setCategories(json);
+            } catch(e) {
+                return null;
+            }
+        }
+        getCategories();
+    }, [])
+
     const GetScrollerData = ({games, index, title}) => {
         if (data) {
             return <GameScroller scrollerGames={data[games]} scrollerIndex={index} title={title} />
@@ -35,7 +52,7 @@ export default function Home() {
     
     return (
         <main>
-            <Header isDynamic={true}/>
+            <Header isDynamic={true} categories={categories}/>
             <GameHighlight />
             <div className="flex flex-col gap-12 pt-12">
                 <GetScrollerData games={'mostRecent'} index={0} title={'Latest releases'} />
