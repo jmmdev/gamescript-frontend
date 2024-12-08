@@ -44,7 +44,7 @@ export default function Header({isDynamic}) {
 
     return (
         <>
-        <div className="flex justify-between items-center h-16 w-full fixed top-0 p-4 z-30" style={{background: isDynamic ? `linear-gradient(180deg, rgba(3,17,18,${opacityRatio}) 0%, rgba(17,24,39,1) 100%)` : "linear-gradient(180deg, rgba(3,17,18,1) 0%, rgba(17,24,39,1) 100%)"}}>
+        <div className="flex justify-between items-center h-16 w-full fixed top-0 p-4 z-30" style={{background: isDynamic ? `linear-gradient(180deg, rgba(3,17,18,1) 0%, rgba(17,24,39,${opacityRatio}) 100%)` : "linear-gradient(180deg, rgba(3,17,18,1) 0%, rgba(17,24,39,1) 100%)"}}>
             <div className="w-full flex justify-between items-center gap-1">
                 <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                     <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
