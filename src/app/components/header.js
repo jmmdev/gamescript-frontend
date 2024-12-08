@@ -41,21 +41,23 @@ export default function Header({isDynamic}) {
             window.removeEventListener('resize', updateLayout);
         }
     }, [])
+
+    function getHeaderDynamicBackground() {
+        if (isDynamic)
+            return `bg-gradient-to-t from-[rgba(17,24,39,${opacityRatio}] to-gray-950`
+        return "bg-gradient-to-t from-gray-900 to-gray-950"
+    } 
+
     return (
         <>
         <div className={`flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30
             ${
                 showMenu
                     ? "bg-gray-800"
-                    : isDynamic
-                        ? `bg-gradient-to-t from-[rgba(17,24,39,${opacityRatio}] to-gray-950`
-                        : "bg-gradient-to-t from-gray-900 to-gray-950"
+                    : getHeaderDynamicBackground()
             }
-            sm:${isDynamic 
-                    ? `bg-gradient-to-t from-[rgba(17,24,39,${opacityRatio}] to-gray-950`
-                    : "bg-gradient-to-t from-gray-900 to-gray-950"
-                }
-            }`}>
+            sm:${getHeaderDynamicBackground()}
+        `}>
             <div className="w-full flex justify-between items-center gap-1">
                 <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                     <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
