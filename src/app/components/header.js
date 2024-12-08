@@ -46,10 +46,15 @@ export default function Header({isDynamic}) {
         <div className={`flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30
             ${
                 showMenu
-                    ? "bg-gray-800 sm:bg-transparent"
-                    : isDynamic 
+                    ? "bg-gray-800"
+                    : isDynamic
                         ? `bg-gradient-to-t from-[rgba(17,24,39,${opacityRatio}] to-gray-950`
                         : "bg-gradient-to-t from-gray-900 to-gray-950"
+            }
+            sm:${isDynamic 
+                    ? `bg-gradient-to-t from-[rgba(17,24,39,${opacityRatio}] to-gray-950`
+                    : "bg-gradient-to-t from-gray-900 to-gray-950"
+                }
             }`}>
             <div className="w-full flex justify-between items-center gap-1">
                 <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
