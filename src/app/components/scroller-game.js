@@ -29,7 +29,7 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
                 }}>
                     <>
                         <Image loading="lazy" src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
-                        <div className="absolute top-0 w-full h-full opacity-40 group-hover:bg-gray-900 border-gray-300 hover:border-4" />
+                        <div className="absolute top-0 w-full h-full border-[#dd202d] hover:border-4" />
                     </>
                 </button>
             )
