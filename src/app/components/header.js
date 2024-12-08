@@ -19,7 +19,7 @@ export default function Header({isDynamic, categories}) {
             menu.classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
             menu.classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
         }
-    }, [showMenu])
+    }, [menu, showMenu])
 
     useEffect(() => {
         function updateOpacity() {
