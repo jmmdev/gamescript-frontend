@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Image from "next/image";
 
-export default function ScrollerGame({game, index, setActiveGame, setShowGameDetails}) {
+export default function ScrollerGame({game, index, setActiveGame, setShowGameDetails, setShowMenu}) {
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const [cover, setCover] = useState(null);
@@ -24,6 +24,7 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
                     setActiveGame(index);
                     if (setShowGameDetails) {
                         setShowGameDetails(true);
+                        
                         document.body.style.overflowY = "hidden";
                     }
                 }}>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import {FaPlay, FaInfoCircle, FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import ShowGameDetails from "./show-game-details";
 
-export default function GameHighlight() {
+export default function GameHighlight({setShowMenu}) {
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
     
     const [randomGames, setRandomGames] = useState(null);
@@ -73,6 +73,7 @@ export default function GameHighlight() {
                     <button className="w-8 aspect-square p-2 rounded-full sm:rounded sm:w-auto sm:aspect-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-gray-600 text-white hover:bg-gray-500"
                         onClick={e => {
                             document.body.style.overflowY = "hidden";
+                            setShowMenu(false);
                             setShowGameDetails(true);
                         }}>
                         <FaInfoCircle />
@@ -110,7 +111,7 @@ export default function GameHighlight() {
                 <>
                     {screenshots[activeGame]}
                     <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-98%" />
-                    <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-20">
+                    <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-10">
                         <div className="w-full h-1/2 flex justify-between items-end px-[2.5%]">
                             <button className="text-[#fff8] text-4xl lg:text-5xl hover:text-white" onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>
                                 <FaChevronLeft />

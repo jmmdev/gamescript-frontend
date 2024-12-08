@@ -3,7 +3,7 @@ import ScrollerGame from './scroller-game';
 import ShowGameDetails from "./show-game-details";
 import {IoMdArrowDropleft, IoMdArrowDropright} from "react-icons/io";
 
-export default function GameScroller({externalFlags, scrollerGames, scrollerIndex, title, isHighlight}) {
+export default function GameScroller({externalFlags, scrollerGames, scrollerIndex, title, isHighlight, setShowMenu}) {
     const scrollerRef = useRef(null);
 
     const GetScroller = () => {
@@ -13,7 +13,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         return (
             <div>
                 {title && <p className="px-[2.5%] py-3 lg:py-4 text-2xl sm:text-4xl font-bold text-white">{title}</p>}
-                <div id={'sc-' + scrollerIndex} className="w-full flex items-center pb-[2.5%] z-20">
+                <div id={'sc-' + scrollerIndex} className="w-full flex items-center pb-[2.5%] z-10">
                     <GetScrollButtons child={
                         <div id={'rc-' + scrollerIndex} key={4} ref={scrollerRef} className="w-full flex overflow-x-scroll no-scrollbar gap-[2.5%] scroll-smooth">
                             <GetScrollerGames setActiveGame={externalFlags ? externalFlags.setActiveGame : setActiveGame} setShowGameDetails={setShowGameDetails}/>
@@ -89,7 +89,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const games = [];
         if (scrollerGames) {
             scrollerGames.map((game, index) => {
-                games.push(<ScrollerGame key={game._id} game={game} index={index} setActiveGame={setActiveGame} setShowGameDetails={isHighlight ? null : setShowGameDetails}/>)
+                games.push(<ScrollerGame key={game._id} game={game} index={index} setActiveGame={setActiveGame} setShowGameDetails={isHighlight ? null : setShowGameDetails} setShowMenu={setShowMenu}/>)
             })
             return games;
         }
