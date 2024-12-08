@@ -23,6 +23,19 @@ export default function Home() {
                 return null;
             }
         }
+        async function clone() {
+            try {
+                const response = await fetch(`${BASE_URL}/clone`,
+                {
+                method: 'GET'
+                });
+                const text = await response.text();
+                console.log(text);
+            } catch(e) {
+                return null;
+            }
+        }
+        clone();
         getData();
     }, [])
 
