@@ -54,7 +54,7 @@ export default function Header({isDynamic}) {
                 </button>
             </div>
         </div>
-        <div id="menu" className={`fixed top-0 w-full -left-full h-screen md:w-[250px] md:-left-[250px] duration-200 ease-in-out bg-gray-800 z-20 flex flex-col justify-between items-center gap-4 p-3`}>
+        <div id="menu" className={`fixed top-0 w-full -left-full h-screen sm:w-[250px] sm:-left-[250px] duration-200 ease-in-out bg-gray-800 z-20 flex flex-col justify-between items-center gap-4 p-3`}>
             <div className="flex flex-col gap-3">
                 <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
                     <p className="text-sm text-white font-medium text-center">Genres</p>
