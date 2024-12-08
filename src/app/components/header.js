@@ -44,7 +44,14 @@ export default function Header({isDynamic}) {
     return (
         <>
         <div className="flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30"
-        style={{background: isDynamic ? `linear-gradient(0deg, rgba(17,24,39,${opacityRatio}) 0%, rgba(3,7,18,1) 100%)` : `linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(3,7,18,1) 100%)`}}>
+        style={{
+            background:
+                showMenu 
+                    ? "rgb(31 41 55)"
+                    :
+                    isDynamic 
+                        ? `linear-gradient(0deg, rgba(17,24,39,${opacityRatio}) 0%, rgba(3,7,18,1) 100%)`
+                        : "linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(3,7,18,1) 100%)"}}>
             <div className="w-full flex justify-between items-center gap-1">
                 <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                     <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
@@ -54,7 +61,7 @@ export default function Header({isDynamic}) {
                 </button>
             </div>
         </div>
-        <div id="menu" className={`fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 flex flex-col justify-between items-center gap-4 p-4 pt-20 sm:w-[14rem] sm:h-screen`}>
+        <div id="menu" className={`fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-20 flex flex-col justify-between items-center gap-4 p-4 pt-20 sm:w-[14rem] sm:h-screen`}>
             <div className="flex flex-col gap-3">
                 <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
                     <p className="text-sm text-white font-medium text-center">Genres</p>
