@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       animation: {
         fade: 'fadeIn 0.3s linear',
-        'slide-left': 'slideLeft 0.3 linear forwards'
+        'slide-left': 'slideLeft 0.3 linear'
       },
       keyframes: () => ({
         fadeIn: {
