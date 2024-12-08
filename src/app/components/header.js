@@ -3,10 +3,27 @@ import Image from "next/image";
 import Link from "next/link";
 import {IoClose, IoMenu} from 'react-icons/io5';
 
-export default function Header({isDynamic, categories}) {
+export default function Header({isDynamic}) {
     let threshold = 0;
     const [opacityRatio, setOpacityRatio] = useState(0);
     const [showMenu, setShowMenu] = useState(false);
+    const [categories, setCategories] = useState(null);
+
+    useEffect(() => {
+        async function getCategories() {
+            try {
+                const response = await fetch(`${BASE_URL}/categories`,
+                {
+                method: 'GET'
+                });
+                const json = await response.json();
+                setCategories(json);
+            } catch(e) {
+                return null;
+            }
+        }
+        getCategories();
+    }, [])
 
     useEffect(() => {
         if (categories) {
