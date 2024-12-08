@@ -46,34 +46,36 @@ export default function Header({isDynamic, categories}) {
     }, [])
 
     const GetCategories = () => {
-        const genres = []
-        const themes = []
+        if (categories) {
+            const genres = []
+            const themes = []
 
-        console.log(categories);
-        for (let g of categories.genres) {
-            genres.push(
-                <Link className="no-underline hover:underline" href={`/genres/${g.slug}/1`}>
-                    <p className="text-sm text-white font-medium text-center">{g.name}</p>
-                </Link>
+            for (let g of categories.genres) {
+                genres.push(
+                    <Link className="no-underline hover:underline" href={`/genres/${g.slug}/1`}>
+                        <p className="text-sm text-white font-medium text-center">{g.name}</p>
+                    </Link>
+                )
+            }
+
+            for (let t of categories.themes) {
+                themes.push(
+                    <Link className="no-underline hover:underline" href={`/themes/${t.slug}/1`}>
+                        <p className="text-sm text-white font-medium text-center">{t.name}</p>
+                    </Link>
+                )
+            }
+
+            return (
+                <div>
+                <p>Genres</p>
+                {genres}
+                <p>Themes</p>
+                {themes}
+                </div>
             )
         }
-
-        for (let t of categories.themes) {
-            themes.push(
-                <Link className="no-underline hover:underline" href={`/themes/${t.slug}/1`}>
-                    <p className="text-sm text-white font-medium text-center">{t.name}</p>
-                </Link>
-            )
-        }
-
-        return (
-            <div>
-            <p>Genres</p>
-            {genres}
-            <p>Themes</p>
-            {themes}
-            </div>
-        )
+        return null;
     }
 
     return (
