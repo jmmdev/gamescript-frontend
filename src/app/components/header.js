@@ -50,14 +50,7 @@ export default function Header({isDynamic}) {
 
     return (
         <>
-        <div className={`flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30
-            ${
-                showMenu
-                    ? "bg-gradient-to-t from-gray-800 to-gray-800" 
-                    : getHeaderDynamicBackground()
-            }
-            sm:${getHeaderDynamicBackground()}
-        `}>
+        <div className={`flex justify-between items-center h-16 w-full b-1 border-white fixed top-0 p-4 z-30 ${getHeaderDynamicBackground()}`}>
             <div className="w-full flex justify-between items-center gap-1">
                 <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                     <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
