@@ -35,6 +35,7 @@ export default function Home() {
                 method: 'GET'
                 });
                 const json = await response.json();
+                console.log(json);
                 setCategories(json);
             } catch(e) {
                 return null;
