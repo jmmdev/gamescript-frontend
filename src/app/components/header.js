@@ -54,8 +54,8 @@ export default function Header({isDynamic}) {
     const GetSideMenu = () => {
         if (showMenu) {
             return (
-                <div className="fixed top-0 left-0 w-full h-screen md:w-[25%] md:max-w-[200px] bg-gray-800 z-50 flex flex-col justify-center items-center">
-                    <div classname="w-full flex items-center justify-end">
+                <div className="fixed top-0 left-0 w-full h-screen md:w-[25%] md:max-w-[200px] bg-gray-800 z-50 flex flex-col justify-between items-center p-4">
+                    <div className="w-full flex items-center justify-end">
                         <button className="text-gray-300" onClick={() => setShowMenu(false)}>
                             <IoClose className="text-2xl" />
                         </button>
