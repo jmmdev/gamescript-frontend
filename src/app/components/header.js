@@ -74,7 +74,7 @@ export default function Header({isDynamic}) {
     const GetHeaderMenu = () => {
         if (showMenu) {
             return (
-                <div className={styles['header-menu']}>
+                <div className="w-screen h-screen bg-gray-900 z-50 flex flex-col items-center gap-4">
                     <Link className={styles['header-button']} href={{pathname: '/genres'}}>
                         <p>Genres</p>
                     </Link>
