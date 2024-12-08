@@ -34,7 +34,7 @@ export default function Header({isDynamic}) {
   
     const GetSideMenu = () => {
         return (
-            <div className={`fixed -top-full left-0 w-full h-screen md:w-[250px] md:top-0 md:left-[-250px] ${showMenu ? "translate-x-0 translate-y-full md:translate-x-full md:translate-y-0" : "translate-x-0 translate-y-0"} transition-all duration-200 ease-linear bg-gray-800 z-20 flex flex-col justify-between items-center gap-4 p-3`}>
+            <div className={`fixed top-0 -left-full w-full h-screen md:w-[250px] ${showMenu ? "translate-x-full" : "translate-x-0"} transition-all duration-200 ease-linear bg-gray-800 z-20 flex flex-col justify-between items-center gap-4 p-3`}>
                 <div className="flex flex-col gap-3">
                     <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
                         <p className="text-sm text-white font-medium text-center">Genres</p>
