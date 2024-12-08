@@ -52,28 +52,26 @@ export default function Header({isDynamic}) {
     */
   
     const GetSideMenu = () => {
-        if (showMenu) {
-            return (
-                <div className="fixed top-0 w-full h-screen md:left-[-250px] md:animate-slide-left md:w-[250px] bg-gray-800 z-50 flex flex-col justify-between items-center gap-4 p-3">
-                    <div className="w-full flex items-center justify-end">
-                        <button className="text-gray-300 hover:text-gray-400 active:text-white" onClick={() => setShowMenu(false)}>
-                            <IoClose className="text-2xl" />
-                        </button>
-                    </div>
-                    <div className="flex flex-col gap-3">
-                        <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
-                            <p className="text-sm text-white font-medium text-center">Genres</p>
-                        </Link>
-                        <Link className="no-underline hover:underline" href={{pathname: '/themes'}}>
-                            <p className="text-sm text-white font-medium text-center">Themes</p>
-                        </Link>
-                    </div>
-                    <div>
-                        Footer
-                    </div>
+        return (
+            <div className={`fixed top-0 w-full h-screen md:${showMenu ? "left-0 animate-hide-left" :"left-[-250px] animate-slide-left"} md:w-[250px] bg-gray-800 z-50 flex flex-col justify-between items-center gap-4 p-3`}>
+                <div className="w-full flex items-center justify-end">
+                    <button className="text-gray-300 hover:text-gray-400 active:text-white" onClick={() => setShowMenu(false)}>
+                        <IoClose className="text-2xl" />
+                    </button>
                 </div>
-            )
-        }
+                <div className="flex flex-col gap-3">
+                    <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
+                        <p className="text-sm text-white font-medium text-center">Genres</p>
+                    </Link>
+                    <Link className="no-underline hover:underline" href={{pathname: '/themes'}}>
+                        <p className="text-sm text-white font-medium text-center">Themes</p>
+                    </Link>
+                </div>
+                <div>
+                    Footer
+                </div>
+            </div>
+        )
         return null;
     }
 

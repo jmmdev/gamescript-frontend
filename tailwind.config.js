@@ -6,8 +6,9 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        fade: 'fadeIn 0.3s linear',
-        'slide-left': 'slideLeft 0.3s linear'
+        fade: 'fadeIn 0.2s linear',
+        'slide-left': 'slideLeft 0.2s linear forwards',
+        'hide-left': 'hideLeft 0.2s linear forwards',
       },
       keyframes: () => ({
         fadeIn: {
@@ -17,6 +18,10 @@ module.exports = {
         slideLeft: {
           '0%': { left: '-250px' },
           '100%': { left: 0 },
+        },
+        hideLeft: {
+          '0%': { left: 0 },
+          '100%': { left: '-250px' },
         }
       }),
       gradientColorStopPositions: {
