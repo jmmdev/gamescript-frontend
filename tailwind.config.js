@@ -15,6 +15,7 @@ module.exports = {
           '100%': { opacity: 0.85 },
         },
         slideLeft: {
+          '0%': { left: '-250px' },
           '100%': { left: 0 },
         }
       }),
