@@ -53,13 +53,13 @@ export default function Header({isDynamic}) {
   
     const GetSideMenu = () => {
         return (
-            <div className={`fixed top-0 left-0 h-screen w-full md:w-[250px] ${showMenu ? "grid-rows-1 md:grid-cols-[1fr]" : "grid-rows-none md:grid-cols-[0fr]"} ease-in-out bg-gray-800 z-50 grid gap-4 p-3`}>
-                <div className="w-full flex items-center justify-end overflow-hidden">
+            <div className={`fixed top-0 w-full h-screen ${showMenu ? "md:w-[250px]" : "md:w-0"} ease-in-out bg-gray-800 z-50 flex flex-col justify-between items-center gap-4 p-3`}>
+                <div className="w-full flex items-center justify-end">
                     <button className="text-gray-300 hover:text-gray-400 active:text-white" onClick={() => setShowMenu(false)}>
                         <IoClose className="text-2xl" />
                     </button>
                 </div>
-                <div className="flex flex-col gap-3 overflow-hidden">
+                <div className="flex flex-col gap-3">
                     <Link className="no-underline hover:underline" href={{pathname: '/genres'}}>
                         <p className="text-sm text-white font-medium text-center">Genres</p>
                     </Link>
@@ -67,7 +67,7 @@ export default function Header({isDynamic}) {
                         <p className="text-sm text-white font-medium text-center">Themes</p>
                     </Link>
                 </div>
-                <div className="overflow-hidden">
+                <div>
                     Footer
                 </div>
             </div>
