@@ -49,6 +49,7 @@ export default function Header({isDynamic, categories}) {
         const genres = []
         const themes = []
 
+        console.log(categories);
         for (let g of categories.genres) {
             genres.push(
                 <Link className="no-underline hover:underline" href={`/genres/${g.slug}/1`}>
