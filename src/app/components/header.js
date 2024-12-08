@@ -47,6 +47,7 @@ export default function Header({isDynamic, categories}) {
 
     const GetCategories = () => {
         if (categories) {
+            console.log(categories);
             const genres = []
             const themes = []
 
