@@ -44,12 +44,7 @@ export default function Header({isDynamic}) {
 
     return (
         <>
-        <div className={`flex justify-between items-center h-16 w-full fixed top-0 p-4 z-30 
-                ${isDynamic 
-                    ? `bg-gradient-to-t from-[rgba(17,24,39,${opacityRatio}] to-gray-950`
-                    : "bg-gradient-to-t from-gray-900 to-gray-950"
-                }
-        `}>
+        <div className={`flex justify-between items-center h-16 w-full fixed top-0 p-4 z-30 ${isDynamic ? `bg-gradient-to-t from-[rgba(17,24,39,${opacityRatio}] to-gray-950` : "bg-gradient-to-t from-gray-900 to-gray-950"}`}>
             <div className="w-full flex justify-between items-center gap-1">
                 <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                     <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
@@ -59,7 +54,7 @@ export default function Header({isDynamic}) {
                 </button>
             </div>
         </div>
-        <div id="menu" className={`fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 flex flex-col justify-between items-center gap-4 p-4 pt-20 sm:w-[14rem] sm:h-screen`}>
+        <div id="menu" className={`fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 flex flex-col justify-between items-center gap-4 p-4 sm:w-[14rem] sm:h-screen`}>
             <div className="w-full flex sm:hidden justify-end items-center">
                 <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(false)}>
                     <IoClose />
