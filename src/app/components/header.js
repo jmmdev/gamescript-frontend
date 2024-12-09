@@ -14,7 +14,9 @@ export default function Header({isDynamic}) {
     useEffect(() => {
         const menu = document.getElementById("menu");
         if (showMenu) {
-            document.body.style.overflowY = "hidden";
+            if (window.innerWidth < 640) {
+                document.body.style.overflowY = "hidden";
+            }
             menu.classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
             menu.classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
             return;
@@ -35,7 +37,18 @@ export default function Header({isDynamic}) {
         }
 
         function updateLayout() {
-            threshold.current = window.innerWidth * 9 / 16 - 64
+            threshold.current = window.innerWidth * 9 / 16 - 64;
+            if (window.innerWidth < 640) {
+                if (showMenu) {
+                    document.body.style.overflowY = "hidden";
+                }
+                else {
+                    document.body.style.overflowY = "auto";
+                }
+            }
+            else {
+                document.body.style.overflowY = "auto";
+            }
         }
 
         async function getCategories() {
@@ -127,7 +140,7 @@ export default function Header({isDynamic}) {
                     }
                 </div>
             </div>
-            <div id="menu" className={`fixed w-full h-screen top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 overflow-y-auto flex flex-col justify-between items-center sm:w-fit sm:py-4 translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0 ${showMenu ? "visible" : "invisible"}`}>
+            <div id="menu" className={`fixed w-full h-screen top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 overflow-y-auto flex flex-col justify-between items-center sm:w-fit pb-4 sm:pt-4 translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0 ${showMenu ? "visible" : "invisible"}`}>
                 <div className="w-full flex sm:hidden justify-end items-center p-4">
                     <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(false)}>
                         <IoClose />
