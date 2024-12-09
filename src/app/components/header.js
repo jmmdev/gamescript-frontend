@@ -52,8 +52,8 @@ export default function Header({isDynamic}) {
 
         getCategories();
         threshold.current = window.innerWidth * 9 / 16 - 64
-        window.addEventListener('scroll', updateOpacity)
-        window.addEventListener('resize', updateLayout)
+        window.addEventListener('scroll', updateOpacity);
+        window.addEventListener('resize', updateLayout);
         updateLayout();
         return () => {
             window.removeEventListener('scroll', updateOpacity);
