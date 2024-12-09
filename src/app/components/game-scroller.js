@@ -27,7 +27,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
     }
 
     const GetScrollButtons = ({child}) => {
-        const lastIndexScrolled = useRef(0);
+        const [lastIndexScrolled, setLastIndexScrolled] = useState(0);
         const range = useRef(0);
         const [currentWidth, setCurrentWidth] = useState(0);
 
@@ -61,7 +61,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
           }, []);
 
         useEffect(() => {
-            const elementToScroll = document.getElementById(`rc-${scrollerIndex}-game-${lastIndexScrolled.current}`);
+            const elementToScroll = document.getElementById(`rc-${scrollerIndex}-game-${lastIndexScrolled}`);
             if (elementToScroll)
                 elementToScroll.scrollIntoView({block: "nearest", inline: "start"});
             getThreshold(currentWidth);
@@ -71,7 +71,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
 
         result.push(
            <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]" 
-           style={{visibility: scrollerRef.current && lastIndexScrolled.current > 0 ? 'visible' : 'hidden'}} 
+           style={{visibility: scrollerRef.current && lastIndexScrolled > 0 ? 'visible' : 'hidden'}} 
            onClick={() => {
 
             }}>
@@ -83,22 +83,22 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         
         result.push(
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
-            style={{visibility: scrollerRef.current && (lastIndexScrolled.current + range.current - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
+            style={{visibility: scrollerRef.current && (lastIndexScrolled + range.current - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
             onClick={() => {
                 let elem;
 
-                const leftRef = lastIndexScrolled.current + range.current;
+                const leftRef = lastIndexScrolled + range.current;
                 const rightRef = leftRef + range.current - 1;
 
                 if (rightRef <= scrollerGames.length - 1) {
                     elem = document.getElementById(`rc-${scrollerIndex}-game-${leftRef}`);
-                    lastIndexScrolled.current = leftRef;
+                    setLastIndexScrolled(leftRef);
                 }
                 else {
                     const diff = rightRef - leftRef;
                     const newElementIndex = lastIndexScrolled + diff;
                     elem = document.getElementById(`rc-${scrollerIndex}-game-${newElementIndex}`);
-                    lastIndexScrolled.current = newElementIndex;
+                    setLastIndexScrolled(newElementIndex);
                 }
                 elem.scrollIntoView({block: "nearest", inline: "start"});
             }}>
