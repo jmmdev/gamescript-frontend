@@ -47,7 +47,6 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         useEffect(() => {
             function updateWidth() {
                 const actualWidth = document.getElementById('sc-' + scrollerIndex).clientWidth;
-                scrollerRef.current.scrollLeft = scrollerRef.current.scrollWidth * scrolled;
                 setCurrentWidth(actualWidth);
             }
 
@@ -61,6 +60,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
           }, []);
 
         useEffect(() => {
+            scrollerRef.current.scrollLeft = scrollerRef.current.scrollWidth * scrolled;
             getThreshold(currentWidth)
         }, [currentWidth])
 
