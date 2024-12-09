@@ -62,7 +62,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         useEffect(() => {
             const elementToScroll = document.getElementById(`rc-${scrollerIndex}-game-${lastIndexScrolled.current}`);
             if (elementToScroll)
-                elementToScroll.scrollIntoView({inline: "start"});
+                elementToScroll.scrollIntoView({block: "nearest", inline: "start"});
             getThreshold(currentWidth);
         }, [currentWidth])
 
@@ -91,13 +91,15 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
 
                 if (rightRef <= scrollerGames.length - 1) {
                     elem = document.getElementById(`rc-${scrollerIndex}-game-${leftRef}`);
+                    lastIndexScrolled.current = leftRef;
                 }
                 else {
                     const diff = rightRef - leftRef;
                     const newElementIndex = lastIndexScrolled + diff;
                     elem = document.getElementById(`rc-${scrollerIndex}-game-${newElementIndex}`);
+                    lastIndexScrolled.current = newElementIndex;
                 }
-                elem.scrollIntoView({inline: "start"});
+                elem.scrollIntoView({block: "nearest", inline: "start"});
             }}>
                 <IoMdArrowDropright size={48} />
             </button>
