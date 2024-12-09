@@ -83,6 +83,22 @@ export default function GameHighlight() {
         )
       }
 
+      const GetLoadingDetails = () => {
+        return (
+            <div className="w-full lg:w-3/5 h-1/2 flex items-center justify-between sm:flex-col sm:items-start sm:justify-center gap-4 px-[2.5%] pt-0 animate-pulse">
+                <div className="w-full flex flex-col">
+                    <div className="h-6 sm:h-[2.25rem] bg-gray-700 rounded-full" />
+                    <div className="hidden lg:block h-5 bg-gray-700 rounded-full" />
+                    <div className="hidden lg:block h-5 bg-gray-700 rounded-full" />
+                </div>
+                <div className="flex gap-4">
+                    <div className="w-8 h-8 p-2 rounded-full sm:w-24 sm:h-[1.125rem] sm:px-5 sm:py-3 bg-gray-700" />
+                    <div className="w-8 h-8 p-2 rounded-full sm:w-24 sm:h-[1.125rem] sm:px-5 sm:py-3 bg-gray-700" />
+                </div>
+            </div>
+        )
+      }
+
       const DoShowGameDetails = ({activeGame, showGameDetails, setShowGameDetails}) => {
         if(showGameDetails)
             return <ShowGameDetails game={randomGames[activeGame]} setShowGameDetails={setShowGameDetails} />
@@ -126,7 +142,13 @@ export default function GameHighlight() {
             )
         }
         return (
-            <div className="w-full h-full bg-black" />
+            <>
+                <div className="w-full h-full bg-black" />
+                <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-zinc-900 to-98%" />
+                <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-10">
+                    <GetLoadingDetails />
+                </div>
+            </>
         );
       }
 
