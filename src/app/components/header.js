@@ -63,36 +63,33 @@ export default function Header({isDynamic}) {
     }, [])
 
     const GetCategories = () => {
-        if (categories) {
-            const genres = []
-            const themes = []
+        const genres = []
+        const themes = []
 
-            for (let g of categories.genres) {
-                genres.push(
-                    <Link className="no-underline hover:underline" href={`/genres/${g.slug}/1`}>
-                        <p className="text-sm text-white font-medium text-center">{g.name}</p>
-                    </Link>
-                )
-            }
-
-            for (let t of categories.themes) {
-                themes.push(
-                    <Link className="no-underline hover:underline" href={`/themes/${t.slug}/1`}>
-                        <p className="text-sm text-white font-medium text-center">{t.name}</p>
-                    </Link>
-                )
-            }
-
-            return (
-                <div>
-                <p>Genres</p>
-                {genres}
-                <p>Themes</p>
-                {themes}
-                </div>
+        for (let g of categories.genres) {
+            genres.push(
+                <Link className="no-underline hover:underline" href={`/genres/${g.slug}/1`}>
+                    <p className="text-sm text-white font-medium text-center">{g.name}</p>
+                </Link>
             )
         }
-        return null;
+
+        for (let t of categories.themes) {
+            themes.push(
+                <Link className="no-underline hover:underline" href={`/themes/${t.slug}/1`}>
+                    <p className="text-sm text-white font-medium text-center">{t.name}</p>
+                </Link>
+            )
+        }
+
+        return (
+            <div>
+            <p>Genres</p>
+            {genres}
+            <p>Themes</p>
+            {themes}
+            </div>
+        )
     }
 
     return (
@@ -116,7 +113,7 @@ export default function Header({isDynamic}) {
                     </button>
                 </div>
                 <div className="flex flex-col gap-3">
-                    <GetCategories />
+                    {categories && <GetCategories />}
                 </div>
                 <div>
                     Footer
