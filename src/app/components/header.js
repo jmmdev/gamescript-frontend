@@ -46,7 +46,7 @@ export default function Header({isDynamic}) {
                 return null;
             }
         }
-        
+
         getCategories();
         threshold = window.innerWidth * 9 / 16 - 64
         window.addEventListener('scroll', updateOpacity)
@@ -95,11 +95,9 @@ export default function Header({isDynamic}) {
                     <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                         <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                     </Link>
-                    {categories &&
-                        <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(!showMenu)}>
-                            <IoMenu />
-                        </button>
-                    }
+                    <button className={`text-3xl text-gray-300 hover:text-white active:text-gray-400 ${categories ? "block" : "hidden"}`} onClick={() => setShowMenu(!showMenu)}>
+                        <IoMenu />
+                    </button>
                 </div>
             </div>
             <div id="menu" className="fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 flex flex-col justify-between items-center gap-4 p-4 sm:w-[14rem] sm:h-screen translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0">
