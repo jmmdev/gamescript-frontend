@@ -75,27 +75,27 @@ export default function Home() {
             const gameComps = [];
             for (let [index, g] of games.games.entries()) {
                 gameComps.push( 
-                    <button key={g._id} className={styles['genre-game']} onClick={() => {
+                    <button key={g._id} className="group flex items-center text-left gap-2" onClick={() => {
                         document.body.style.overflowY = 'hidden';
                         setShowGameDetails({show: true, value: index});
                     }}>
-                        <div className={styles['cover-thumbnail']} style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}}>
+                        <div className="relative aspect-[0.75]" style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}}>
                             <Image loading="lazy" src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${g.cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
                         </div>
-                        <div className={styles['game-details']}>
-                            <p className={styles['game-name']}>{g.name}</p>
-                            <p className={styles['game-summary']}>{g.summary}</p>
+                        <div className="flex flex-col gap-2 text-white">
+                            <p className="text-xl sm:text-3xl line-clamp-1 font-bold group-hover:text-[#dd202d]">{g.name}</p>
+                            <p className="line-clamp-2">{g.summary}</p>
                         </div>
                     </button>
                 )
             }
             return (
-                <div className={styles['genre-content']} style={{minHeight: window.innerHeight - 64 - Math.max(window.innerWidth * 0.01, 8) - 2 * Math.max(24, window.innerWidth * 0.022)}}>
-                    <div className={styles['genre-list']}>
+                <div className="flex flex-col justify-between gap-8" style={{minHeight: window.innerHeight - 64 - Math.max(window.innerWidth * 0.01, 8) - 2 * Math.max(24, window.innerWidth * 0.022)}}>
+                    <div className="flex flex-col gap-8">
                         {gameComps}
                     </div>
-                    <div className={styles['selector-container']}>
-                        <div className={styles.selector}>
+                    <div className="flex justify-center py-8 justify-self-end">
+                        <div className="w-fit flex gap-2">
                             <GetPages />
                         </div>
                     </div>
@@ -109,22 +109,40 @@ export default function Home() {
         
         for (let i=0; i<15; i++) {
             loadingComps.push(
-                <div key={i} className={styles['genre-game']} style={{position: 'relative'}}>
-                    <div className={styles['cover-thumbnail']} style={{backgroundColor: '#fff8', height: Math.max(coverWidth * 0.05, 64) / 0.75}} />
-                    <div className={styles['game-details']} style={{width: '100%'}}>
-                        <p className={styles['game-name']} style={{width: '40%', height: headerHeight, backgroundColor: '#fff8', borderRadius: 24}}/>
-                        <p className={styles['game-summary']} style={{width: '100%', height: descHeight, backgroundColor: '#fffc', borderRadius: 24}}/>
-                        <p className={styles['game-summary']} style={{width: '100%', height: descHeight, backgroundColor: '#fffc', borderRadius: 24}}/>
+                <div key={i} className="relative flex items-center text-left gap-2">
+                    <div className={`relative aspect-[0.75] bg-white h-[${Math.max(coverWidth * 0.05, 64) / 0.75}px]`} />
+                    <div className="w-full flex flex-col gap-2 text-white">
+                        <p className={`w-2/5 h-[${headerHeight}px] bg-white rounded-full`}/>
+                        <p className={`w-full h-[${descHeight}px] bg-white rounded-full`}/>
+                        <p className={`w-full h-[${descHeight}px] bg-white rounded-full`}/>
                     </div>
-                    <div className={styles['loading-gradient']} />
                 </div>
             )
         }
         return (
-            <div className={styles['genre-content']}>
+            <div className="flex flex-col gap-8 justify-between">
                 {loadingComps}
             </div>
         );
+    }
+
+    const GetPageButton = ({key, index, numPages, content, isFirst, isLast, href}) => {
+        return (
+            <Link key={key} className={`w-8 h-8 justify-center items-center rounded-full border-2 border-white text-white font-semibold text-center no-underline
+                ${isFirst 
+                    ? actualPage !== 0 
+                        ? "flex" 
+                        : "hidden"
+                    : isLast
+                        ? actualPage !== numPages - 1
+                            ? "flex"
+                            : "hidden"
+                        : (index >= actualPage-1 && index <= actualPage+1 ? "flex" : "hidden") (actualPage === index ? "bg-[#dd202d]" : "bg-[#dd202d80]")
+                }`} 
+            href={href}>
+                {content}
+            </Link>
+        )
     }
 
     const GetPages = () => {
@@ -134,26 +152,27 @@ export default function Home() {
             const selector = [];
 
             selector.push(
-                <Link key={'goToFirst'} className={styles['selector-page-inactive']} style={{display: actualPage !== 0 ? 'block' : 'none'}} href={`/genres/${params.slug[0]}/1`}>
-                    <div className={styles['go-to-container']}>
+                <GetPageButton key={'goToFirst'} isFirst={true} href={`/genres/${params.slug[0]}/1`} content={
+                    <div className="w-full h-[95%] flex justify-center items-center">
                         <LuChevronFirst size={20}/>
                     </div>
-                </Link>
+                } />
             )
             for (let i=0; i<numPages; i++) {
                 selector.push(
-                    <Link key={`goToPage${i+1}`} className={actualPage === i ? styles['selector-page-active'] : styles['selector-page-inactive']} 
-                    style={{display: i >= actualPage-1 && i <= actualPage+1 ? 'block' : 'none'}} href={{pathname: `/genres/${params.slug[0]}/${i+1}`}}>
-                        {i+1}
-                    </Link>
+                    <GetPageButton key={`goToPage${i+1}`} index={i} href={{pathname: `/genres/${params.slug[0]}/${i+1}`}} content={
+                        <>
+                            {i+1}
+                        </>
+                    } />
                 )
             }
             selector.push(
-                <Link key={'goToLast'} className={styles['selector-page-inactive']} style={{display: actualPage !== numPages-1 ? 'block' : 'none'}} href={`/genres/${params.slug[0]}/${numPages}`}>
-                    <div className={styles['go-to-container']}>
+                <GetPageButton key={'goToLast'} numPages={numPages} isLast={true} href={`/genres/${params.slug[0]}/${numPages}`} content={
+                    <div className="w-full h-[95%] flex justify-center items-center">
                         <LuChevronLast size={20}/>
                     </div>
-                </Link>
+                } />
             )
             return selector;
         }
@@ -169,8 +188,8 @@ export default function Home() {
     return (
         <main>
             <Header isDynamic={false}/>
-            <div className={styles['genre-container']}>
-                <p className={styles.genre}>{genre && `${genre.name} games`}</p>
+            <div className="w-full mt-16 p-2">
+                <p className="text-2xl sm:text-4xl font-extrabold text-white">{genre && `${genre.name} games`}</p>
                 <GetGenreGames />
             </div>
             <DoShowGameDetails />

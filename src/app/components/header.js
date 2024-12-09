@@ -131,8 +131,8 @@ export default function Header({isDynamic}) {
     return (
         <>
             <div className="flex justify-between items-center h-16 w-full fixed top-0 p-4 z-30" style={{background: isDynamic ? `linear-gradient(180deg, rgba(9,9,11,1) 0%, rgba(24,24,27,${opacityRatio}) 100%)` : "linear-gradient(180deg, rgba(9,9,11,1) 0%, rgba(24,24,27,1) 100%)"}}>
-                <div className="w-full flex justify-between items-center gap-1">
-                    <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
+                <div className="w-full h-full flex justify-between items-center gap-1">
+                    <Link className="relative h-full aspect-[4.875]" href={{pathname: '/'}}>
                         <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                     </Link>
                     {categories &&
