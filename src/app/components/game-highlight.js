@@ -66,11 +66,11 @@ export default function GameHighlight() {
                     <p className="hidden lg:line-clamp-2 truncate whitespace-normal text-xl text-white text-justify">{game.summary}</p>
                 </div>
                 <div className="flex gap-4">
-                    <button className="w-8 h-8 p-2 rounded-full sm:rounded sm:w-auto sm:h-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-white hover:bg-gray-300">
+                    <button className="w-8 h-8 p-2 rounded-full sm:rounded sm:w-auto sm:h-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-white hover:bg-zinc-300">
                         <FaPlay />
                         <p className="hidden sm:block">Play</p>
                     </button>
-                    <button className="w-8 aspect-square p-2 rounded-full sm:rounded sm:w-auto sm:aspect-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-gray-600 text-white hover:bg-gray-500"
+                    <button className="w-8 aspect-square p-2 rounded-full sm:rounded sm:w-auto sm:aspect-auto sm:px-5 sm:py-3 flex justify-center items-center gap-3 text-lg font-semibold bg-zinc-600 text-white hover:bg-zinc-500"
                         onClick={e => {
                             document.body.style.overflowY = "hidden";
                             setShowGameDetails(true);
@@ -109,7 +109,7 @@ export default function GameHighlight() {
             return (
                 <>
                     {screenshots[activeGame]}
-                    <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-gray-900 to-98%" />
+                    <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-zinc-900 to-98%" />
                     <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-10">
                         <div className="w-full h-1/2 flex justify-between items-end px-[2.5%]">
                             <button className="text-[#fff8] text-4xl lg:text-5xl hover:text-white" onClick={() => setActiveGame(activeGame > 0 ? activeGame-1 : randomGames.length-1)}>

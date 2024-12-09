@@ -170,7 +170,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
             return (
                 <>
                     <div className="w-full max-w-3xl flex justify-end">
-                        <button className="flex text-gray-300 text-lg font-semibold items-center gap-0.5 hover:text-white" onClick={() => {
+                        <button className="flex text-zinc-300 text-lg font-semibold items-center gap-0.5 hover:text-white" onClick={() => {
                             setShowGameDetails(false);
                             document.body.style.overflowY = "auto";
                             }}>
@@ -178,7 +178,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                             <IoClose size={22} />
                         </button>
                     </div>
-                    <div className="w-full max-w-3xl max-h-[min(70vh,_600px)] overflow-y-auto p-4 rounded bg-gray-900 text-white">
+                    <div className="w-full max-w-3xl max-h-[min(70vh,_600px)] overflow-y-auto p-4 rounded bg-zinc-900 text-white">
                         <div className="flex flex-col gap-1">
                             <p className="text-2xl font-extrabold">{game.name}</p>
                             <div className="flex items-center gap-0.5">
@@ -218,7 +218,7 @@ export default function ShowGameDetails({game, setShowGameDetails, category}){
                                     More tags:&nbsp;<GetOtherInfo />
                                 </div>
                                 <div className="w-full flex justify-end">
-                                <button className={"flex items-center gap-3 px-4 py-2 rounded font-semibold bg-white hover:bg-gray-300 text-black"}>
+                                <button className={"flex items-center gap-3 px-4 py-2 rounded font-semibold bg-white hover:bg-zinc-300 text-black"}>
                                     <FaPlay />
                                     <p>Play</p>
                                 </button>
