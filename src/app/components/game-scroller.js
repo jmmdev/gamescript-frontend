@@ -34,8 +34,6 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
             function updateWidth() {
                 const actualWidth = window.innerWidth;
 
-                console.log(actualWidth);
-
                 if (actualWidth < 768)
                     setRange(3);
                 else if (actualWidth >= 768 && actualWidth < 1024)
@@ -67,7 +65,20 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
            <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]" 
            style={{visibility: scrollerRef.current && lastIndexScrolled > 0 ? 'visible' : 'hidden'}} 
            onClick={() => {
+                let index;
 
+                const ref = lastIndexScrolled - range;
+
+                if (ref >= 0) {
+                    index = ref;
+                    setLastIndexScrolled(ref);
+                }
+                else {
+                    index = 0;
+                    setLastIndexScrolled(0);
+                }
+                const elem = document.getElementById(`rc-${scrollerIndex}-game-${index}`);
+                elem.scrollIntoView({block: "nearest", inline: "start"});
             }}>
                 <IoMdArrowDropleft size={48} />
             </button>
@@ -79,21 +90,22 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
             style={{visibility: scrollerRef.current && (lastIndexScrolled + range - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
             onClick={() => {
-                let elem;
+                let index;
 
                 const leftRef = lastIndexScrolled + range;
                 const rightRef = leftRef + range - 1;
 
                 if (rightRef <= scrollerGames.length - 1) {
-                    elem = document.getElementById(`rc-${scrollerIndex}-game-${leftRef}`);
+                    index = leftRef;
                     setLastIndexScrolled(leftRef);
                 }
                 else {
                     const diff = rightRef - leftRef;
                     const newElementIndex = lastIndexScrolled + diff;
-                    elem = document.getElementById(`rc-${scrollerIndex}-game-${newElementIndex}`);
+                    index = newElementIndex;
                     setLastIndexScrolled(newElementIndex);
                 }
+                const elem = document.getElementById(`rc-${scrollerIndex}-game-${index}`);
                 elem.scrollIntoView({block: "nearest", inline: "start"});
             }}>
                 <IoMdArrowDropright size={48} />
