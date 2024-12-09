@@ -75,14 +75,14 @@ export default function Home() {
             const gameComps = [];
             for (let [index, g] of games.games.entries()) {
                 gameComps.push( 
-                    <button key={g._id} className="group flex items-center text-left gap-2" onClick={() => {
+                    <button key={g._id} className="group flex items-center text-left gap-4" onClick={() => {
                         document.body.style.overflowY = 'hidden';
                         setShowGameDetails({show: true, value: index});
                     }}>
                         <div className="relative aspect-[0.75]" style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}}>
                             <Image loading="lazy" src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${g.cover.image_id}.jpg`} fill sizes="100%" alt="cover.jpg" priority />
                         </div>
-                        <div className="flex flex-col gap-2 text-white">
+                        <div className="flex flex-col gap-1 sm:gap-2 text-white">
                             <p className="text-xl sm:text-3xl line-clamp-1 font-bold group-hover:text-[#dd202d]">{g.name}</p>
                             <p className="sm:text-lg line-clamp-2">{g.summary}</p>
                         </div>
@@ -107,12 +107,12 @@ export default function Home() {
         
         for (let i=0; i<15; i++) {
             loadingComps.push(
-                <div key={i} className="relative flex items-center text-left gap-2">
-                    <div className="relative aspect-[0.75] bg-zinc-800" style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}} />
+                <div key={i} className="flex items-center text-left gap-4 animate-pulse">
+                    <div className="aspect-[0.75] bg-zinc-800" style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}} />
                     <div className="w-full flex flex-col gap-3 text-white">
-                        <p className={`w-1/2 sm:w-3/5 h-[1.75rem] sm:h-[2.25rem] bg-zinc-800 rounded-full`}/>
-                        <p className={`w-full h-6 sm:h[1.75rem] bg-zinc-800 rounded-full`}/>
-                        <p className={`w-full h-6 sm:h[1.75rem] bg-zinc-800 rounded-full`}/>
+                        <p className={`w-1/2 sm:w-3/5 h-5 sm:h-[1.875rem] bg-zinc-800 rounded-full`}/>
+                        <p className={`w-full h-4 sm:h[1.125rem] bg-zinc-800 rounded-full`}/>
+                        <p className={`w-full h-4 sm:h[1.125rem] bg-zinc-800 rounded-full`}/>
                     </div>
                 </div>
             )
