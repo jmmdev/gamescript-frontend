@@ -14,8 +14,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${myFont.variable} font-sans antialiased bg-zinc-900 scrollbar`}>
+    <html lang="en" className="scrollbar">
+      <body className={`${myFont.variable} font-sans antialiased bg-zinc-900`}>
         {children}
       </body>
     </html>
