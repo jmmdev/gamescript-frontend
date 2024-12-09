@@ -20,7 +20,7 @@ export default function ScrollerGame({game, index, setActiveGame, setShowGameDet
     const GetCover = () => {
         if (cover !== null) {
             return (
-                <button className="group relative basis-[31.666%] sm:basis-[10.3125%] lg:basis-[7.75%] grow-0 shrink-0" style={{aspectRatio: cover.width / cover.height}} onClick={() => {
+                <button className="group relative basis-[31.6666%] md:basis-[23.125%] lg:basis-[14.58333%] xl:basis-[10.3125%] 2xl:basis-[7.75%] grow-0 shrink-0" style={{aspectRatio: cover.width / cover.height}} onClick={() => {
                     setActiveGame(index);
                     if (setShowGameDetails) {
                         setShowGameDetails(true);
