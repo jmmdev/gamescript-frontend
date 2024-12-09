@@ -110,9 +110,9 @@ export default function Home() {
                 <div key={i} className="relative flex items-center text-left gap-2">
                     <div className={`relative aspect-[0.75] bg-white h-[${Math.max(coverWidth * 0.05, 64) / 0.75}px]`} />
                     <div className="w-full flex flex-col gap-2 text-white">
-                        <p className={`w-2/5 h-[${headerHeight}px] bg-white rounded-full`}/>
-                        <p className={`w-full h-[${descHeight}px] bg-white rounded-full`}/>
-                        <p className={`w-full h-[${descHeight}px] bg-white rounded-full`}/>
+                        <p className={`w-2/5 h-[1.75rem] sm:h-[2.25rem] bg-white rounded-full`}/>
+                        <p className={`w-full h-6 sm:h[1.75rem] bg-white rounded-full`}/>
+                        <p className={`w-full h-6 sm:h[1.75rem] bg-white rounded-full`}/>
                     </div>
                 </div>
             )
