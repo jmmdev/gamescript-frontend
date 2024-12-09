@@ -84,7 +84,7 @@ export default function Home() {
                         </div>
                         <div className="flex flex-col gap-2 text-white">
                             <p className="text-xl sm:text-3xl line-clamp-1 font-bold group-hover:text-[#dd202d]">{g.name}</p>
-                            <p className="sm:lg line-clamp-2">{g.summary}</p>
+                            <p className="sm:text-lg line-clamp-2">{g.summary}</p>
                         </div>
                     </button>
                 )
@@ -108,11 +108,11 @@ export default function Home() {
         for (let i=0; i<15; i++) {
             loadingComps.push(
                 <div key={i} className="relative flex items-center text-left gap-2">
-                    <div className={`relative aspect-[0.75] bg-white h-[${Math.max(coverWidth * 0.05, 64) / 0.75}px]`} />
-                    <div className="w-full flex flex-col gap-2 text-white">
-                        <p className={`w-2/5 h-[1.75rem] sm:h-[2.25rem] bg-white rounded-full`}/>
-                        <p className={`w-full h-6 sm:h[1.75rem] bg-white rounded-full`}/>
-                        <p className={`w-full h-6 sm:h[1.75rem] bg-white rounded-full`}/>
+                    <div className="relative aspect-[0.75] bg-zinc-800" style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}} />
+                    <div className="w-full flex flex-col gap-3 text-white">
+                        <p className={`w-1/2 sm:w-3/5 h-[1.75rem] sm:h-[2.25rem] bg-zinc-800 rounded-full`}/>
+                        <p className={`w-full h-6 sm:h[1.75rem] bg-zinc-800 rounded-full`}/>
+                        <p className={`w-full h-6 sm:h[1.75rem] bg-zinc-800 rounded-full`}/>
                     </div>
                 </div>
             )
