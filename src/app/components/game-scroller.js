@@ -41,7 +41,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
 
         useEffect(() => {
             function updateWidth() {
-                setCurrentWidth(document.getElementById('sc-' + scrollerIndex).clientWidth)
+                setCurrentWidth(document.getElementById('sc-' + scrollerIndex).clientWidth);
                 setScrolled(scrollerRef.current.scrollLeft / scrollerRef.current.scrollWidth)
             }
 
