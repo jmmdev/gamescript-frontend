@@ -84,7 +84,7 @@ export default function Home() {
                         </div>
                         <div className="flex flex-col gap-2 text-white">
                             <p className="text-xl sm:text-3xl line-clamp-1 font-bold group-hover:text-[#dd202d]">{g.name}</p>
-                            <p className="line-clamp-2">{g.summary}</p>
+                            <p className="sm:lg line-clamp-2">{g.summary}</p>
                         </div>
                     </button>
                 )
@@ -94,7 +94,7 @@ export default function Home() {
                     <div className="flex flex-col gap-8">
                         {gameComps}
                     </div>
-                    <div className="flex justify-center py-8 justify-self-end">
+                    <div className="flex justify-center py-4 sm:py-8 justify-self-end">
                         <div className="w-fit flex gap-2">
                             <GetPages />
                         </div>
@@ -104,8 +104,6 @@ export default function Home() {
         }
 
         const loadingComps = [];
-        const headerHeight = Math.max(21, window.innerWidth * 0.018);
-        const descHeight = Math.max(14, window.innerWidth * 0.012);
         
         for (let i=0; i<15; i++) {
             loadingComps.push(
@@ -131,11 +129,11 @@ export default function Home() {
             <Link key={key} className={`w-8 h-8 justify-center items-center rounded-full border-2 border-white text-white font-semibold text-center no-underline
                 ${isFirst 
                     ? actualPage !== 0 
-                        ? "flex" 
+                        ? "flex hover:bg-[#dd202d80]"
                         : "hidden"
                     : isLast
                         ? actualPage !== numPages - 1
-                            ? "flex"
+                            ? "flex hover:bg-[#dd202d80]"
                             : "hidden"
                         : index >= actualPage-1 && index <= actualPage+1 ? "flex" : "hidden"
                 }
@@ -190,7 +188,7 @@ export default function Home() {
     return (
         <main>
             <Header isDynamic={false}/>
-            <div className="w-full mt-16 p-2">
+            <div className="w-full flex flex-col gap-6 mt-16 p-8">
                 <p className="text-2xl sm:text-4xl font-extrabold text-white">{genre && `${genre.name} games`}</p>
                 <GetGenreGames />
             </div>
