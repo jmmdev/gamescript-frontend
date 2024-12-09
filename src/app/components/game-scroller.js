@@ -29,6 +29,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
     const GetScrollButtons = ({child}) => {
         const [lastIndexScrolled, setLastIndexScrolled] = useState(0);
         const [currentWidth, setCurrentWidth] = useState(0);
+        const range = useRef(0);
 
         function getThreshold(width) {
             if (width < 768) {
