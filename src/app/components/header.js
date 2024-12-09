@@ -67,25 +67,25 @@ export default function Header({isDynamic}) {
 
         for (let g of categories.genres) {
             genres.push(
-                <Link className="no-underline hover:underline" href={`/genres/${g.slug}/1`}>
-                    <p className="text-sm text-white font-medium text-center">{g.name}</p>
+                <Link className="group w-fit pl-4 no-underline" href={`/genres/${g.slug}/1`}>
+                    <p className="text-white font-light group-hover:underline">{g.name}</p>
                 </Link>
             )
         }
 
         for (let t of categories.themes) {
             themes.push(
-                <Link className="no-underline hover:underline" href={`/themes/${t.slug}/1`}>
-                    <p className="text-sm text-white font-medium text-center">{t.name}</p>
+                <Link className="group w-fit pl-4 no-underline" href={`/themes/${t.slug}/1`}>
+                    <p className="text-white font-light group-hover:underline">{t.name}</p>
                 </Link>
             )
         }
 
         return (
             <div>
-                <p>Genres</p>
+                <p className="font-medium uppercase">Genres</p>
                 {genres}
-                <p>Themes</p>
+                <p className="font-medium uppercase">Themes</p>
                 {themes}
             </div>
         )
