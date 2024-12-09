@@ -112,13 +112,13 @@ export default function Header({isDynamic}) {
 
         return (
             <div className="w-full flex flex-col gap-3 px-8">
-                <div className="w-fit flex flex-col gap-3">
+                <div className="w-fit flex flex-col">
                     <p className="text-lg text-white font-bold uppercase">Genres</p>
                     <div className="flex flex-col gap-2">
                         {genres}
                     </div>
                 </div>
-                <div className="w-fit flex flex-col gap-3">
+                <div className="w-fit flex flex-col">
                     <p className="text-lg text-white font-bold uppercase">Themes</p>
                     <div className="flex flex-col gap-2">
                         {themes}
@@ -130,7 +130,7 @@ export default function Header({isDynamic}) {
 
     return (
         <>
-            <div className={`flex justify-between items-center h-16 w-full fixed top-0 p-4 z-30 ${isDynamic ? "" : "backdrop-blur-lg"}`} style={{background: isDynamic ? `linear-gradient(180deg, rgba(9,9,11,1) 0%, rgba(24,24,27,${opacityRatio}) 100%)` : "linear-gradient(180deg, rgba(9,9,11,1) 0%, rgba(24,24,27,0) 100%)"}}>
+            <div className={`flex justify-between items-center h-16 w-full fixed top-0 p-4 z-30 ${isDynamic ? "" : "backdrop-blur-sm"}`} style={{background: isDynamic ? `linear-gradient(180deg, rgba(9,9,11,1) 0%, rgba(24,24,27,${opacityRatio}) 100%)` : "linear-gradient(180deg, rgba(9,9,11,1) 0%, rgba(24,24,27,0) 100%)"}}>
                 <div className="w-full h-full flex justify-between items-center gap-1">
                     <Link className="relative h-full aspect-[4.875]" href={{pathname: '/'}}>
                         <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
