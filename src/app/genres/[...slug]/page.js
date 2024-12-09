@@ -106,7 +106,7 @@ export default function Home() {
         
         for (let i=0; i<15; i++) {
             loadingComps.push(
-                <div key={i} className="flex items-center text-left gap-4 animate-pulse opacity-50">
+                <div key={i} className="flex items-center text-left gap-4 animate-pulse">
                     <div className="aspect-[0.75] bg-zinc-700" style={{height: Math.max(coverWidth * 0.05, 64) / 0.75}} />
                     <div className="w-full flex flex-col gap-3 text-white">
                         <p className={`w-1/2 sm:w-3/5 h-5 sm:h-[1.875rem] bg-zinc-700 rounded-full`}/>
