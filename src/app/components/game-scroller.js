@@ -31,12 +31,16 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const [currentWidth, setCurrentWidth] = useState(0);
 
         function getThreshold(width) {
-            if (width < 600)
-                setThreshold({min: 0.2, max: 0.75})
-            else if (width >= 600 && width < 1100)
-                setThreshold({min: 0.2, max: 0.6})
+            if (width < 640)
+                setThreshold({min: 0.1, max: 0.95})
+            else if (width >= 640 && width < 768)
+                setThreshold({min: 0.15, max: 0.85})
+            else if (width >= 768 && width < 1280)
+                setThreshold({min: 0.25, max: 0.95})
+            else if (width >= 1280 && width < 1536)
+                setThreshold({min: 0.3, max: 0.85})
             else
-                setThreshold({min: 0.2, max: 0.5})
+                setThreshold({min: 0.45, max: 0.55})
         }
 
         useEffect(() => {
