@@ -89,13 +89,13 @@ export default function Header({isDynamic}) {
 
         return (
             <div className="w-full flex flex-col gap-3 px-8">
-                <div className="flex flex-col gap-3">
+                <div className="w-fit flex flex-col gap-3">
                     <p className="text-lg text-white font-bold uppercase">Genres</p>
                     <div className="flex flex-col gap-2">
                         {genres}
                     </div>
                 </div>
-                <div className="flex flex-col gap-3">
+                <div className="w-fit flex flex-col gap-3">
                     <p className="text-lg text-white font-bold uppercase">Themes</p>
                     <div className="flex flex-col gap-2">
                         {themes}
