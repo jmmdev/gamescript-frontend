@@ -137,7 +137,7 @@ export default function Home() {
                         ? actualPage !== numPages - 1
                             ? "flex"
                             : "hidden"
-                        : (index >= actualPage-1 && index <= actualPage+1 ? "flex" : "hidden") (actualPage === index ? "bg-[#dd202d]" : "bg-[#dd202d80]")
+                        : index >= actualPage-1 && index <= actualPage+1 ? "flex" : "hidden", actualPage === index ? "bg-[#dd202d]" : "bg-[#dd202d80]"
                 }`} 
             href={href}>
                 {content}
