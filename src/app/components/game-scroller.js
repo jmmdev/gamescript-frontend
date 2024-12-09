@@ -16,7 +16,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
                 <div id={'sc-' + scrollerIndex} className="w-full flex items-center pb-[2.5%] z-10">
                     <GetScrollButtons child={
                         <div id={'rc-' + scrollerIndex} key={4} ref={scrollerRef} className="w-full flex overflow-x-scroll no-scrollbar gap-[2.5%] scroll-smooth">
-                            <GetScrollerGames setActiveGame={externalFlags ? externalFlags.setActiveGame : setActiveGame} setShowGameDetails={setShowGameDetails}/>
+                            <GetScrollerGames setActiveGame={externalFlags ? externalFlags.setActiveGame : setActiveGame} setShowGameDetails={setShowGameDetails} scrollerIndex={scrollerIndex}/>
                         </div>
                     } scrollPosition={scrollPosition} setScrollPosition={setScrollPosition} />
                 </div>
@@ -26,33 +26,37 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
     }
 
     const GetScrollButtons = ({child}) => {
-        const maxClicks = useRef(0);
-        const numClicks = useRef(0);
-        const [scrolled, setScrolled] = useState(0);
+        const lastIndexScrolled = useRef(0);
+        const range = useRef(0);
         const [currentWidth, setCurrentWidth] = useState(0);
 
         function getThreshold(width) {
-            if (width < 640)
-                maxClicks.current = 6;
-            else if (width >= 640 && width < 768)
-                maxClicks.current = 4;
-            else if (width >= 768 && width < 1280)
-                maxClicks.current = 3;
-            else if (width >= 1280 && width < 1536)
-                maxClicks.current = 2;
-            else
-                maxClicks.current = 1;
+            if (width < 640) {
+                range.current = 3;
+            }
+            else if (width >= 640 && width < 768) {
+                range.current = 4;
+            }
+            else if (width >= 768 && width < 1280) {
+                range.current = 6;
+            }
+            else if (width >= 1280 && width < 1536) {
+                range.current = 8;
+            }
+            else {
+                range.current = 10;
+            }
+        }
+
+        function scrollGameIntoView({id}) {
+
         }
 
         useEffect(() => {
             function updateWidth() {
-                const actualWidth = document.getElementById('sc-' + scrollerIndex).clientWidth;
+                const actualWidth = document.getElementById('rc-' + scrollerIndex).clientWidth;
                 setCurrentWidth(actualWidth);
             }
-
-            document.getElementById('rc-' + scrollerIndex).addEventListener('scrollend', 
-                event => setScrolled(scrollerRef.current.scrollLeft / scrollerRef.current.scrollWidth)
-            )
             window.addEventListener('resize', updateWidth);
             updateWidth();
 
@@ -60,18 +64,18 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
           }, []);
 
         useEffect(() => {
-            scrollerRef.current.scrollLeft = scrollerRef.current.scrollWidth * scrolled;
-            getThreshold(currentWidth)
+            const elementToScroll = document.getElementById(`sc-${scrollerIndex}-game-${lastIndexScrolled.current}`);
+            elementToScroll.scrollIntoView({inline: "start"});
+            getThreshold(currentWidth);
         }, [currentWidth])
 
         const result = [];
 
         result.push(
            <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]" 
-           style={{visibility: scrollerRef.current && numClicks.current > 0 ? 'visible' : 'hidden'}} 
+           style={{visibility: scrollerRef.current && lastIndexScrolled.current > 0 ? 'visible' : 'hidden'}} 
            onClick={() => {
-                numClicks.current -= 1;
-                scrollerRef.current.scrollLeft -= Math.floor(currentWidth * 0.975);
+
             }}>
                 <IoMdArrowDropleft size={48} />
             </button>
@@ -81,22 +85,34 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         
         result.push(
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
-            style={{visibility: scrollerRef.current && numClicks.current < maxClicks.current ? 'visible' : 'hidden'}}
+            style={{visibility: scrollerRef.current && (lastIndexScrolled.current + range.current - 1) < scrollerGames.length-1 ? 'visible' : 'hidden'}}
             onClick={() => {
-                    numClicks.current += 1;
-                    scrollerRef.current.scrollLeft += Math.floor(currentWidth * 0.975);
-                }}>
+                let elem;
+
+                const leftRef = lastIndexScrolled.current + range.current;
+                const rightRef = leftRef + range.current - 1;
+
+                if (rightRef <= scrollerGames.length - 1) {
+                    elem = document.getElementById(`rc-${scrollerIndex}-game-${leftRef}`);
+                }
+                else {
+                    const diff = rightRef - leftRef;
+                    const newElementIndex = lastIndexScrolled + diff;
+                    elem = document.getElementById(`rc-${scrollerIndex}-game-${newElementIndex}`);
+                }
+                elem.scrollIntoView({inline: "start"});
+            }}>
                 <IoMdArrowDropright size={48} />
             </button>
         )
         return result;
     }
 
-    const GetScrollerGames = ({setActiveGame, setShowGameDetails}) => {
+    const GetScrollerGames = ({setActiveGame, setShowGameDetails, scrollerIndex}) => {
         const games = [];
         if (scrollerGames) {
             scrollerGames.map((game, index) => {
-                games.push(<ScrollerGame key={game._id} game={game} index={index} setActiveGame={setActiveGame} setShowGameDetails={isHighlight ? null : setShowGameDetails}/>)
+                games.push(<ScrollerGame key={game._id} game={game} index={index} scrollerIndex={scrollerIndex} setActiveGame={setActiveGame} setShowGameDetails={isHighlight ? null : setShowGameDetails}/>)
             })
             return games;
         }
