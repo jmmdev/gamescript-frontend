@@ -67,7 +67,7 @@ export default function Header({isDynamic}) {
 
         for (let g of categories.genres) {
             genres.push(
-                <div className="pl-4 py-2">
+                <div className="pl-4">
                     <Link className="group w-fit no-underline" href={`/genres/${g.slug}/1`}>
                         <p className="text-white font-light group-hover:text-[#dd202d]">{g.name}</p>
                     </Link>
@@ -77,9 +77,9 @@ export default function Header({isDynamic}) {
 
         for (let t of categories.themes) {
             themes.push(
-                <div className="pl-4 py-2">
+                <div className="pl-4">
                     <Link className="group w-fit pl-4 no-underline" href={`/themes/${t.slug}/1`}>
-                        <p className="text-white font-light group-hover:text-[#dd202d]">{t.name}</p>
+                        <p className="text-sm text-white group-hover:text-[#dd202d]">{t.name}</p>
                     </Link>
                 </div>
             )
@@ -88,12 +88,16 @@ export default function Header({isDynamic}) {
         return (
             <div className="w-full flex flex-col gap-3">
                 <div>
-                    <p className="text-lg text-white font-medium uppercase">Genres</p>
-                    {genres}
+                    <p className="text-lg text-white font-bold uppercase">Genres</p>
+                    <div className="flex flex-col gap-2">
+                        {genres}
+                    </div>
                 </div>
                 <div>
-                    <p className="text-lg text-white font-medium uppercase">Themes</p>
-                    {themes}
+                    <p className="text-lg text-white font-bold uppercase">Themes</p>
+                    <div className="flex flex-col gap-2">
+                        {themes}
+                    </div>
                 </div>
             </div>
         )
