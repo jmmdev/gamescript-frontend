@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {IoClose, IoMenu} from 'react-icons/io5';
 
 export default function Header({isDynamic}) {
-    let threshold = 0;
+    const threshold = useRef(0);
     const [opacityRatio, setOpacityRatio] = useState(0);
     const [showMenu, setShowMenu] = useState(false);
     const [categories, setCategories] = useState(null);
@@ -22,7 +22,7 @@ export default function Header({isDynamic}) {
 
     useEffect(() => {
         function updateOpacity() {
-            let opacityRatio = window.scrollY / threshold;
+            let opacityRatio = window.scrollY / threshold.current;
 
             if (opacityRatio > 1)
                 opacityRatio = 1;
@@ -31,7 +31,7 @@ export default function Header({isDynamic}) {
         }
 
         function updateLayout() {
-            threshold = window.innerWidth * 9 / 16 - 64
+            threshold.current = window.innerWidth * 9 / 16 - 64
         }
 
         async function getCategories() {
@@ -41,6 +41,7 @@ export default function Header({isDynamic}) {
                 method: 'GET'
                 });
                 const json = await response.json();
+                console.log(json);
                 setCategories(json);
             } catch(e) {
                 return null;
@@ -48,7 +49,7 @@ export default function Header({isDynamic}) {
         }
 
         getCategories();
-        threshold = window.innerWidth * 9 / 16 - 64
+        threshold.current = window.innerWidth * 9 / 16 - 64
         window.addEventListener('scroll', updateOpacity)
         window.addEventListener('resize', updateLayout)
         updateLayout()
