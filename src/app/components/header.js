@@ -7,6 +7,8 @@ export default function Header({isDynamic}) {
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const threshold = useRef(0);
+    const showMenuRef = useRef(false);
+
     const [opacityRatio, setOpacityRatio] = useState(0);
     const [showMenu, setShowMenu] = useState(false);
     const [categories, setCategories] = useState(null);
@@ -39,7 +41,12 @@ export default function Header({isDynamic}) {
         function updateLayout() {
             threshold.current = window.innerWidth * 9 / 16 - 64;
             if (window.innerWidth < 640) {
-                document.body.style.overflowY = "hidden";
+                if (showMenuRef.current) {
+                    document.body.style.overflowY = "hidden";
+                }
+                else {
+                    document.body.style.overflowY = "auto";
+                }
             }
             else {
                 document.body.style.overflowY = "auto";
@@ -129,7 +136,11 @@ export default function Header({isDynamic}) {
                         <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                     </Link>
                     {categories &&
-                        <button className={`text-3xl ${showMenu ? "text-[#dd202d]" : "text-gray-300"} hover:text-white active:text-gray-400 ${categories ? "block" : "hidden"}`} onClick={() => setShowMenu(!showMenu)}>
+                        <button className={`text-3xl ${showMenu ? "text-[#dd202d]" : "text-gray-300"} hover:text-white active:text-gray-400 ${categories ? "block" : "hidden"}`}
+                        onClick={() => {
+                            showMenuRef.current = !showMenu;
+                            setShowMenu(!showMenu);
+                        }}>
                             <IoMenu />
                         </button>
                     }
@@ -137,7 +148,11 @@ export default function Header({isDynamic}) {
             </div>
             <div id="menu" className={`fixed w-full h-screen top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 overflow-y-auto flex flex-col justify-between items-center sm:w-fit pb-4 sm:pt-4 translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0 ${showMenu ? "visible" : "invisible"}`}>
                 <div className="w-full flex sm:hidden justify-end items-center p-4">
-                    <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(false)}>
+                    <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400"
+                        onClick={() => {
+                            showMenuRef.current = false;
+                            setShowMenu(false);
+                        }}>
                         <IoClose />
                     </button>
                 </div>
