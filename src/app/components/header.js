@@ -10,22 +10,6 @@ export default function Header({isDynamic}) {
     const [categories, setCategories] = useState(null);
 
     useEffect(() => {
-        async function getCategories() {
-            try {
-                const response = await fetch(`${BASE_URL}/categories`,
-                {
-                method: 'GET'
-                });
-                const json = await response.json();
-                setCategories(json);
-            } catch(e) {
-                return null;
-            }
-        }
-        getCategories();
-    }, [])
-
-    useEffect(() => {
         const menu = document.getElementById("menu");
         if (showMenu) {
             menu.classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
@@ -50,6 +34,20 @@ export default function Header({isDynamic}) {
             threshold = window.innerWidth * 9 / 16 - 64
         }
 
+        async function getCategories() {
+            try {
+                const response = await fetch(`${BASE_URL}/categories`,
+                {
+                method: 'GET'
+                });
+                const json = await response.json();
+                setCategories(json);
+            } catch(e) {
+                return null;
+            }
+        }
+        
+        getCategories();
         threshold = window.innerWidth * 9 / 16 - 64
         window.addEventListener('scroll', updateOpacity)
         window.addEventListener('resize', updateLayout)
