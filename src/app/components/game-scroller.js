@@ -31,22 +31,21 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const [currentWidth, setCurrentWidth] = useState(0);
         const [range, setRange] = useState(0);
 
-        function getThreshold(width) {
-            if (width < 768)
-                setRange(3);
-            else if (width >= 768 && width < 1024)
-                setRange(4);
-            else if (width >= 1024 && width < 1280)
-                setRange(6);
-            else if (width >= 1280 && width < 1536)
-                setRange(8);
-            else 
-                setRange(10);
-        }
-
         useEffect(() => {
             function updateWidth() {
                 const actualWidth = document.getElementById('rc-' + scrollerIndex).clientWidth;
+
+                if (actualWidth < 768)
+                    setRange(3);
+                else if (actualWidth >= 768 && actualWidth < 1024)
+                    setRange(4);
+                else if (actualWidth >= 1024 && actualWidth < 1280)
+                    setRange(6);
+                else if (actualWidth >= 1280 && actualWidth < 1536)
+                    setRange(8);
+                else 
+                    setRange(10);
+
                 setCurrentWidth(actualWidth);
             }
             window.addEventListener('resize', updateWidth);
@@ -59,7 +58,6 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
             const elementToScroll = document.getElementById(`rc-${scrollerIndex}-game-${lastIndexScrolled}`);
             if (elementToScroll)
                 elementToScroll.scrollIntoView({block: "nearest", inline: "start"});
-            getThreshold(currentWidth);
         }, [currentWidth])
 
         const result = [];
