@@ -62,8 +62,8 @@ export default function Header({isDynamic}) {
     }, [])
 
     const GetCategories = () => {
-        const genres = []
-        const themes = []
+        const genres = [];
+        const themes = [];
 
         for (let g of categories.genres) {
             genres.push(
