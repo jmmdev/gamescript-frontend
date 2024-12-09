@@ -11,4 +11,10 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+
+    @layer utilities {
+        .scrollbar {
+            @apply scrollbar-thumb-zinc-700 scrollbar-track-zinc-950/70
+        }
+    }
 }
