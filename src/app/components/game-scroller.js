@@ -64,7 +64,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
            <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]" 
            style={{visibility: scrollerRef.current && scrolled > threshold.min ? 'visible' : 'hidden'}} 
            onClick={() => {
-                scrollerRef.current.scrollLeft -= Math.floor(currentWidth * 0.975);
+                scrollerRef.current.scrollLeft -= Math.floor(currentWidth);
             }}>
                 <IoMdArrowDropleft size={48} />
             </button>
@@ -76,7 +76,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
             style={{visibility: scrollerRef.current && scrolled < threshold.max ? 'visible' : 'hidden'}}
             onClick={() => {
-                    scrollerRef.current.scrollLeft += Math.floor(currentWidth * 0.975);
+                    scrollerRef.current.scrollLeft += Math.floor(currentWidth);
                 }}>
                 <IoMdArrowDropright size={48} />
             </button>

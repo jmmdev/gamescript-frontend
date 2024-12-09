@@ -125,7 +125,13 @@ export default function GameHighlight() {
                 </>
             )
         }
-        return null;
+        return (
+            <div className="w-full h-full bg-black flex justify-center items-center">
+                <p className="w-fit text-4xl uppercase text-white">
+                    PLACEHOLDER
+                </p>
+            </div>
+        );
       }
 
       const GetCurrentScreenshot = () => {
