@@ -67,26 +67,34 @@ export default function Header({isDynamic}) {
 
         for (let g of categories.genres) {
             genres.push(
-                <Link className="group w-fit pl-4 no-underline" href={`/genres/${g.slug}/1`}>
-                    <p className="text-white font-light group-hover:underline">{g.name}</p>
-                </Link>
+                <div className="pl-4 py-2">
+                    <Link className="group w-fit no-underline" href={`/genres/${g.slug}/1`}>
+                        <p className="text-white font-light group-hover:text-[#dd202d]">{g.name}</p>
+                    </Link>
+                </div>
             )
         }
 
         for (let t of categories.themes) {
             themes.push(
-                <Link className="group w-fit pl-4 no-underline" href={`/themes/${t.slug}/1`}>
-                    <p className="text-white font-light group-hover:underline">{t.name}</p>
-                </Link>
+                <div className="pl-4 py-2">
+                    <Link className="group w-fit pl-4 no-underline" href={`/themes/${t.slug}/1`}>
+                        <p className="text-white font-light group-hover:text-[#dd202d]">{t.name}</p>
+                    </Link>
+                </div>
             )
         }
 
         return (
-            <div>
-                <p className="font-medium uppercase">Genres</p>
-                {genres}
-                <p className="font-medium uppercase">Themes</p>
-                {themes}
+            <div className="w-full flex flex-col gap-3">
+                <div>
+                    <p className="text-lg text-white font-medium uppercase">Genres</p>
+                    {genres}
+                </div>
+                <div>
+                    <p className="text-lg text-white font-medium uppercase">Themes</p>
+                    {themes}
+                </div>
             </div>
         )
     }
@@ -111,9 +119,7 @@ export default function Header({isDynamic}) {
                         <IoClose />
                     </button>
                 </div>
-                <div className="flex flex-col gap-3">
-                    {categories && <GetCategories />}
-                </div>
+                {categories && <GetCategories />}
                 <div>
                     Footer
                 </div>
