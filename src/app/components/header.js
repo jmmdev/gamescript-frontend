@@ -4,6 +4,8 @@ import Link from "next/link";
 import {IoClose, IoMenu} from 'react-icons/io5';
 
 export default function Header({isDynamic}) {
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    
     const threshold = useRef(0);
     const [opacityRatio, setOpacityRatio] = useState(0);
     const [showMenu, setShowMenu] = useState(false);
