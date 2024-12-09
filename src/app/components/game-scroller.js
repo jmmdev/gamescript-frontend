@@ -5,6 +5,7 @@ import {IoMdArrowDropleft, IoMdArrowDropright} from "react-icons/io";
 
 export default function GameScroller({externalFlags, scrollerGames, scrollerIndex, title, isHighlight}) {
     const scrollerRef = useRef(null);
+    console.log(scrollerGames.length);
 
     const GetScroller = () => {
         const [activeGame, setActiveGame] = useState(0);
@@ -82,7 +83,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         
         result.push(
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
-            style={{visibility: scrollerRef.current && (lastIndexScrolled.current + range.current - 1) < scrollerGames.length-1 ? 'visible' : 'hidden'}}
+            style={{visibility: scrollerRef.current && (lastIndexScrolled.current + range.current - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
             onClick={() => {
                 let elem;
 
