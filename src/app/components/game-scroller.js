@@ -29,22 +29,22 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
     const GetScrollButtons = ({child}) => {
         const [lastIndexScrolled, setLastIndexScrolled] = useState(0);
         const [currentWidth, setCurrentWidth] = useState(0);
-        const [range, setRange] = useState(0);
+        const range = useRef(0);
 
         useEffect(() => {
             function updateWidth() {
                 const actualWidth = document.getElementById('rc-' + scrollerIndex).clientWidth;
 
                 if (actualWidth < 768)
-                    setRange(3);
+                    range.current = 3;
                 else if (actualWidth >= 768 && actualWidth < 1024)
-                    setRange(4);
+                    range.current = 4;
                 else if (actualWidth >= 1024 && actualWidth < 1280)
-                    setRange(6);
+                    range.current = 6;
                 else if (actualWidth >= 1280 && actualWidth < 1536)
-                    setRange(8);
+                    range.current = 8;
                 else 
-                    setRange(10);
+                    range.current = 10;
 
                 setCurrentWidth(actualWidth);
             }
@@ -76,12 +76,12 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         
         result.push(
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
-            style={{visibility: scrollerRef.current && (lastIndexScrolled + range - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
+            style={{visibility: scrollerRef.current && (lastIndexScrolled + range.current - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
             onClick={() => {
                 let elem;
 
-                const leftRef = lastIndexScrolled + range;
-                const rightRef = leftRef + range - 1;
+                const leftRef = lastIndexScrolled + range.current;
+                const rightRef = leftRef + range.current - 1;
 
                 if (rightRef <= scrollerGames.length - 1) {
                     elem = document.getElementById(`rc-${scrollerIndex}-game-${leftRef}`);
