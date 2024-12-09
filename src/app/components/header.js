@@ -36,7 +36,7 @@ export default function Header({isDynamic}) {
             menu.classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
             menu.classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
         }
-    }, [categories, showMenu])
+    }, [showMenu])
 
     useEffect(() => {
         function updateOpacity() {
@@ -85,10 +85,10 @@ export default function Header({isDynamic}) {
 
             return (
                 <div>
-                    <p>Genres</p>
-                    {genres}
-                    <p>Themes</p>
-                    {themes}
+                <p>Genres</p>
+                {genres}
+                <p>Themes</p>
+                {themes}
                 </div>
             )
         }
@@ -102,7 +102,7 @@ export default function Header({isDynamic}) {
                     <Link className="relative w-48 aspect-[4.875]" href={{pathname: '/'}}>
                         <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                     </Link>
-                    {categories !== null &&
+                    {categories &&
                         <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(!showMenu)}>
                             <IoMenu />
                         </button>
