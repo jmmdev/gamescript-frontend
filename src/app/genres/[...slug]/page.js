@@ -137,8 +137,10 @@ export default function Home() {
                         ? actualPage !== numPages - 1
                             ? "flex"
                             : "hidden"
-                        : index >= actualPage-1 && index <= actualPage+1 ? "flex" : "hidden", actualPage === index ? "bg-[#dd202d]" : "bg-[#dd202d80]"
-                }`} 
+                        : index >= actualPage-1 && index <= actualPage+1 ? "flex" : "hidden"
+                }
+                ${!isFirst && !isLast ? actualPage === index ? "bg-[#dd202d]" : "hover:bg-[#dd202d80]" : ""}
+            `}
             href={href}>
                 {content}
             </Link>
