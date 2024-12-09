@@ -69,7 +69,7 @@ export default function Header({isDynamic}) {
             genres.push(
                 <div className="pl-4">
                     <Link className="group w-fit no-underline" href={`/genres/${g.slug}/1`}>
-                        <p className="text-white font-light group-hover:text-[#dd202d]">{g.name}</p>
+                        <p className="text-sm text-white group-hover:text-[#dd202d]">{g.name}</p>
                     </Link>
                 </div>
             )
@@ -78,7 +78,7 @@ export default function Header({isDynamic}) {
         for (let t of categories.themes) {
             themes.push(
                 <div className="pl-4">
-                    <Link className="group w-fit pl-4 no-underline" href={`/themes/${t.slug}/1`}>
+                    <Link className="group w-fit no-underline" href={`/themes/${t.slug}/1`}>
                         <p className="text-sm text-white group-hover:text-[#dd202d]">{t.name}</p>
                     </Link>
                 </div>
@@ -117,7 +117,7 @@ export default function Header({isDynamic}) {
                     }
                 </div>
             </div>
-            <div id="menu" className="fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 flex flex-col justify-between items-center gap-4 p-4 sm:w-[14rem] sm:h-screen translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0">
+            <div id="menu" className="fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 flex flex-col justify-between items-center gap-4 px-8 py-4 sm:w-fit sm:h-screen translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0">
                 <div className="w-full flex sm:hidden justify-end items-center">
                     <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(false)}>
                         <IoClose />
