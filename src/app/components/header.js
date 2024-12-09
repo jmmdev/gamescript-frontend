@@ -41,9 +41,9 @@ export default function Header({isDynamic}) {
                 method: 'GET'
                 });
                 const json = await response.json();
-                console.log(json);
                 setCategories(json);
             } catch(e) {
+                console.log(e);
                 return null;
             }
         }
@@ -52,7 +52,7 @@ export default function Header({isDynamic}) {
         threshold.current = window.innerWidth * 9 / 16 - 64
         window.addEventListener('scroll', updateOpacity)
         window.addEventListener('resize', updateLayout)
-        updateLayout()
+        updateLayout();
         return () => {
             window.removeEventListener('scroll', updateOpacity);
             window.removeEventListener('resize', updateLayout);
