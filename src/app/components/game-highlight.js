@@ -62,7 +62,7 @@ export default function GameHighlight() {
         return (
             <div className="w-full lg:w-3/5 h-1/2 flex items-center justify-between sm:flex-col sm:items-start sm:justify-center gap-4 px-[2.5%] pt-0 ">
                 <div className="w-full flex flex-col">
-                    <p className="text-2xl sm:text-4xl sm:leading-[3rem] font-bold text-white">{game.name}</p>
+                    <p className="text-2xl sm:text-4xl sm:leading-[3rem] font-bold text-white line-clamp-2">{game.name}</p>
                     <p className="hidden lg:line-clamp-2 truncate whitespace-normal text-xl text-white text-justify">{game.summary}</p>
                 </div>
                 <div className="flex gap-4">
@@ -126,11 +126,7 @@ export default function GameHighlight() {
             )
         }
         return (
-            <div className="w-full h-full bg-black flex justify-center items-center">
-                <p className="w-fit text-4xl uppercase text-white">
-                    PLACEHOLDER
-                </p>
-            </div>
+            <div className="w-full h-full bg-black" />
         );
       }
 
