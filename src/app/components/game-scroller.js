@@ -26,27 +26,29 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
     }
 
     const GetScrollButtons = ({child}) => {
+        const maxClicks = useRef(0);
+        const numClicks = useRef(0);
         const [scrolled, setScrolled] = useState(0);
-        const [threshold, setThreshold] = useState({min:0, max: 0});
         const [currentWidth, setCurrentWidth] = useState(0);
 
         function getThreshold(width) {
             if (width < 640)
-                setThreshold({min: 0.1, max: 0.85})
+                maxClicks.current = 6;
             else if (width >= 640 && width < 768)
-                setThreshold({min: 0.15, max: 0.75})
+                maxClicks.current = 4;
             else if (width >= 768 && width < 1280)
-                setThreshold({min: 0.25, max: 0.65})
+                maxClicks.current = 3;
             else if (width >= 1280 && width < 1536)
-                setThreshold({min: 0.35, max: 0.55})
+                maxClicks.current = 2;
             else
-                setThreshold({min: 0.45, max: 0.45})
+                maxClicks.current = 1;
         }
 
         useEffect(() => {
             function updateWidth() {
-                setCurrentWidth(document.getElementById('sc-' + scrollerIndex).clientWidth);
-                setScrolled(scrollerRef.current.scrollLeft / scrollerRef.current.scrollWidth);
+                const actualWidth = document.getElementById('sc-' + scrollerIndex).clientWidth;
+                scrollerRef.current.scrollLeft = scrollerRef.current.scrollWidth * scrolled;
+                setCurrentWidth(actualWidth);
             }
 
             document.getElementById('rc-' + scrollerIndex).addEventListener('scrollend', 
@@ -66,8 +68,9 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
 
         result.push(
            <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]" 
-           style={{visibility: scrollerRef.current && scrolled > threshold.min ? 'visible' : 'hidden'}} 
+           style={{visibility: scrollerRef.current && numClicks.current > 0 ? 'visible' : 'hidden'}} 
            onClick={() => {
+                numClicks.current -= 1;
                 scrollerRef.current.scrollLeft -= Math.floor(currentWidth * 0.975);
             }}>
                 <IoMdArrowDropleft size={48} />
@@ -78,14 +81,14 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         
         result.push(
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
-            style={{visibility: scrollerRef.current && scrolled < threshold.max ? 'visible' : 'hidden'}}
+            style={{visibility: scrollerRef.current && numClicks.current < maxClicks.current ? 'visible' : 'hidden'}}
             onClick={() => {
+                    numClicks.current += 1;
                     scrollerRef.current.scrollLeft += Math.floor(currentWidth * 0.975);
                 }}>
                 <IoMdArrowDropright size={48} />
             </button>
         )
-        
         return result;
     }
 
