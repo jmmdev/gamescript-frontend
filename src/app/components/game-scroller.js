@@ -5,7 +5,6 @@ import {IoMdArrowDropleft, IoMdArrowDropright} from "react-icons/io";
 
 export default function GameScroller({externalFlags, scrollerGames, scrollerIndex, title, isHighlight}) {
     const scrollerRef = useRef(null);
-    console.log(scrollerGames.length);
 
     const GetScroller = () => {
         const [activeGame, setActiveGame] = useState(0);
@@ -33,7 +32,9 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
 
         useEffect(() => {
             function updateWidth() {
-                const actualWidth = document.getElementById('rc-' + scrollerIndex).clientWidth;
+                const actualWidth = window.innerWidth;
+
+                console.log(actualWidth);
 
                 if (actualWidth < 768)
                     setRange(3);
