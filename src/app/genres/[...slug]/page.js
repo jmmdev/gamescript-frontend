@@ -2,7 +2,6 @@
 import React, {useEffect, useState} from "react";
 import Header from "../../components/header";
 import { useParams } from "next/navigation";
-import styles from './page.module.css';
 import Image from "next/image";
 import ShowGameDetails from "@/app/components/show-game-details";
 import {LuChevronFirst, LuChevronLast} from 'react-icons/lu';
