@@ -78,12 +78,12 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         
         result.push(
             <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d]"
-            style={{visibility: scrollerRef.current && (lastIndexScrolled + range.current - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
+            style={{visibility: scrollerRef.current && (lastIndexScrolled + range - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
             onClick={() => {
                 let elem;
 
-                const leftRef = lastIndexScrolled + range.current;
-                const rightRef = leftRef + range.current - 1;
+                const leftRef = lastIndexScrolled + range;
+                const rightRef = leftRef + range - 1;
 
                 if (rightRef <= scrollerGames.length - 1) {
                     elem = document.getElementById(`rc-${scrollerIndex}-game-${leftRef}`);
