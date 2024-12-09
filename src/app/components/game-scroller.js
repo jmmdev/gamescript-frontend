@@ -48,10 +48,6 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
             }
         }
 
-        function scrollGameIntoView({id}) {
-
-        }
-
         useEffect(() => {
             function updateWidth() {
                 const actualWidth = document.getElementById('rc-' + scrollerIndex).clientWidth;
@@ -64,8 +60,9 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
           }, []);
 
         useEffect(() => {
-            const elementToScroll = document.getElementById(`sc-${scrollerIndex}-game-${lastIndexScrolled.current}`);
-            elementToScroll.scrollIntoView({inline: "start"});
+            const elementToScroll = document.getElementById(`rc-${scrollerIndex}-game-${lastIndexScrolled.current}`);
+            if (elementToScroll)
+                elementToScroll.scrollIntoView({inline: "start"});
             getThreshold(currentWidth);
         }, [currentWidth])
 
