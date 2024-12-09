@@ -67,6 +67,14 @@ export default function Header({isDynamic}) {
         const genres = [];
         const themes = [];
 
+        categories.genres.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+        })
+
+        categories.themes.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+        })
+
         for (let g of categories.genres) {
             genres.push(
                 <div className="pl-4">
@@ -86,14 +94,6 @@ export default function Header({isDynamic}) {
                 </div>
             )
         }
-
-        genres.sort((a,b) => {
-            return a.name.localeCompare(b.name);
-        })
-
-        themes.sort((a,b) => {
-            return a.name.localeCompare(b.name);
-        })
 
         return (
             <div className="w-full flex flex-col gap-3 px-8 sm:pb-4">
