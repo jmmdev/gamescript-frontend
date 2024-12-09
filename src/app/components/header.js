@@ -39,12 +39,7 @@ export default function Header({isDynamic}) {
         function updateLayout() {
             threshold.current = window.innerWidth * 9 / 16 - 64;
             if (window.innerWidth < 640) {
-                if (showMenu) {
-                    document.body.style.overflowY = "hidden";
-                }
-                else {
-                    document.body.style.overflowY = "auto";
-                }
+                document.body.style.overflowY = "hidden";
             }
             else {
                 document.body.style.overflowY = "auto";
@@ -109,7 +104,7 @@ export default function Header({isDynamic}) {
         }
 
         return (
-            <div className="w-full flex flex-col gap-3 px-8 sm:pb-4">
+            <div className="w-full flex flex-col gap-3 px-8">
                 <div className="w-fit flex flex-col gap-3">
                     <p className="text-lg text-white font-bold uppercase">Genres</p>
                     <div className="flex flex-col gap-2">
@@ -134,7 +129,7 @@ export default function Header({isDynamic}) {
                         <Image src={'/assets/logo.png'} fill alt="alt-logo.png" />
                     </Link>
                     {categories &&
-                        <button className={`text-3xl text-gray-300 hover:text-white active:text-gray-400 ${categories ? "block" : "hidden"}`} onClick={() => setShowMenu(!showMenu)}>
+                        <button className={`text-3xl ${showMenu ? "text-[#dd202d]" : "text-gray-300"} hover:text-white active:text-gray-400 ${categories ? "block" : "hidden"}`} onClick={() => setShowMenu(!showMenu)}>
                             <IoMenu />
                         </button>
                     }
