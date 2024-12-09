@@ -26,16 +26,14 @@ export default function Header({isDynamic}) {
     }, [])
 
     useEffect(() => {
-        if (categories) {
-            const menu = document.getElementById("menu");
-            if (showMenu) {
-                menu.classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
-                menu.classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
-                return;
-            }
-            menu.classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
-            menu.classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
+        const menu = document.getElementById("menu");
+        if (showMenu) {
+            menu.classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
+            menu.classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
+            return;
         }
+        menu.classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
+        menu.classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
     }, [showMenu])
 
     useEffect(() => {
