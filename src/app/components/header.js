@@ -14,10 +14,12 @@ export default function Header({isDynamic}) {
     useEffect(() => {
         const menu = document.getElementById("menu");
         if (showMenu) {
+            document.body.style.overflowY = "hidden";
             menu.classList.remove("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
             menu.classList.add("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
             return;
         }
+        document.body.style.overflowY = "auto";
         menu.classList.remove("translate-x-0", "translate-y-0", "sm:translate-x-0", "sm:translate-y-0");
         menu.classList.add("translate-x-0", "-translate-y-full", "sm:-translate-x-full", "sm:translate-y-0");
     }, [showMenu])
@@ -117,7 +119,7 @@ export default function Header({isDynamic}) {
                     }
                 </div>
             </div>
-            <div id="menu" className="fixed w-full top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 flex flex-col justify-between items-center gap-4 sm:w-fit sm:h-screen translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0">
+            <div id="menu" className="fixed w-full h-screen top-0 left-0 duration-200 ease-in-out bg-gray-800 z-40 overflow-y-auto flex flex-col justify-between items-center sm:w-fit translate-x-0 -translate-y-full sm:-translate-x-full sm:translate-y-0">
                 <div className="w-full flex sm:hidden justify-end items-center p-4">
                     <button className="text-3xl text-gray-300 hover:text-white active:text-gray-400" onClick={() => setShowMenu(false)}>
                         <IoClose />
