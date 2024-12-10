@@ -86,7 +86,7 @@ export default function GameHighlight() {
       const GetLoadingDetails = () => {
         return (
             <div className="w-full lg:w-3/5 h-1/2 flex items-center justify-between sm:flex-col sm:items-start sm:justify-center gap-4 px-[2.5%] pt-0 animate-pulse">
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col gap-3">
                     <div className="h-8 sm:h-10 bg-gray-700 rounded-full" />
                     <div className="hidden lg:block h-[1.75rem] bg-gray-700 rounded-full" />
                     <div className="hidden lg:block h-[1.75rem] bg-gray-700 rounded-full" />
