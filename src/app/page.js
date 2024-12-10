@@ -33,7 +33,7 @@ export default function Home() {
         return (
             <div className="flex flex-col p-4 px-[2.5%] animate-pulse">
                 <div className="h-[2.5rem] sm:h-[3.5rem] rounded-full bg-zinc-700"/>
-                <div className={`w-full h-[40vw] flex bg-zinc-700`} />
+                <div className={`w-full h-[40vw] md:h-[29.5vw] lg:h-[18.5vw] xl:h-[13.07vw] 2xl:h-[10vw] flex bg-zinc-700`} />
             </div>
         )
     }
