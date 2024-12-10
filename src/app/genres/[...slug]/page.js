@@ -72,6 +72,7 @@ export default function Home() {
     const GetGenreGames = () => {
         if (games !== null && games.games.length > 0) {
             const gameComps = [];
+            
             for (let [index, g] of games.games.entries()) {
                 gameComps.push( 
                     <button key={g._id} className="group flex items-center text-left gap-4" onClick={() => {
