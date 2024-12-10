@@ -143,7 +143,6 @@ export default function GameHighlight() {
         }
         return (
             <>
-                <div className="w-full h-full bg-black" />
                 <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-zinc-900 to-98%" />
                 <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-10">
                     <GetLoadingDetails />
