@@ -87,13 +87,13 @@ export default function GameHighlight() {
         return (
             <div className="w-full lg:w-3/5 h-1/2 flex items-center justify-between sm:flex-col sm:items-start sm:justify-center gap-4 px-[2.5%] pt-0 animate-pulse">
                 <div className="w-full flex flex-col gap-3">
-                    <div className="h-8 sm:h-10 bg-gray-700 rounded-full" />
-                    <div className="hidden lg:block h-[1.75rem] bg-gray-700 rounded-full" />
-                    <div className="hidden lg:block h-[1.75rem] bg-gray-700 rounded-full" />
+                    <div className="h-8 sm:h-10 bg-zinc-700 rounded-full" />
+                    <div className="hidden lg:block h-[1.75rem] bg-zinc-700 rounded-full" />
+                    <div className="hidden lg:block h-[1.75rem] bg-zinc-700 rounded-full" />
                 </div>
                 <div className="flex gap-4">
-                    <div className="w-12 h-12 p-2 rounded-full sm:w-[7.5rem] sm:h-[2.625rem] bg-gray-700" />
-                    <div className="w-12 h-12 p-2 rounded-full sm:w-[7.5rem] sm:h-[2.625rem] bg-gray-700" />
+                    <div className="w-12 h-12 p-2 rounded-full sm:w-[7.5rem] sm:h-[2.625rem] bg-zinc-700" />
+                    <div className="w-12 h-12 p-2 rounded-full sm:w-[7.5rem] sm:h-[2.625rem] bg-zinc-700" />
                 </div>
             </div>
         )
@@ -143,7 +143,7 @@ export default function GameHighlight() {
         }
         return (
             <>
-                <div className="absolute w-full h-full bg-gray-600" />
+                <div className="absolute w-full h-full bg-zinc-600" />
                 <div className="absolute w-full h-full bg-gradient-to-b from-transparent to-zinc-900 to-98%" />
                 <div className="w-full absolute top-16 flex flex-col justify-end h-[calc(min(100vw_*_9_/_16,_100vh)_-_4rem)] z-10">
                     <GetLoadingDetails />
