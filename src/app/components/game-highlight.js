@@ -87,13 +87,13 @@ export default function GameHighlight() {
         return (
             <div className="w-full lg:w-3/5 h-1/2 flex items-center justify-between sm:flex-col sm:items-start sm:justify-center gap-4 px-[2.5%] pt-0 animate-pulse">
                 <div className="w-full flex flex-col">
-                    <div className="h-6 sm:h-[2.25rem] bg-gray-700 rounded-full" />
-                    <div className="hidden lg:block h-5 bg-gray-700 rounded-full" />
-                    <div className="hidden lg:block h-5 bg-gray-700 rounded-full" />
+                    <div className="h-8 sm:h-10 bg-gray-700 rounded-full" />
+                    <div className="hidden lg:block h-[1.75rem] bg-gray-700 rounded-full" />
+                    <div className="hidden lg:block h-[1.75rem] bg-gray-700 rounded-full" />
                 </div>
                 <div className="flex gap-4">
-                    <div className="w-8 h-8 p-2 rounded-full sm:w-24 sm:h-[1.125rem] sm:px-5 sm:py-3 bg-gray-700" />
-                    <div className="w-8 h-8 p-2 rounded-full sm:w-24 sm:h-[1.125rem] sm:px-5 sm:py-3 bg-gray-700" />
+                    <div className="w-12 h-12 p-2 rounded-full sm:w-[7.5rem] sm:h-[2.625rem] bg-gray-700" />
+                    <div className="w-12 h-12 p-2 rounded-full sm:w-[7.5rem] sm:h-[2.625rem] bg-gray-700" />
                 </div>
             </div>
         )
