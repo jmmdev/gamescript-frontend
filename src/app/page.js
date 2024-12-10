@@ -29,11 +29,11 @@ export default function Home() {
     const GetScrollerData = ({games, index, title}) => {
         if (data) 
             return <GameScroller scrollerGames={data[games]} scrollerIndex={index} title={title} />
-            
+
         return (
-            <div className="px-[2.5%] animate-pulse">
-                <div className="h-[3.5rem] sm:h-[4.5rem] rounded-full bg-zinc-700"/>
-                <div className="w-full h-24 flex bg-zinc-700" />
+            <div className="flex flex-col p-4 px-[2.5%] animate-pulse">
+                <div className="h-[2.5rem] sm:h-[3.5rem] rounded-full bg-zinc-700"/>
+                <div className={`w-full h-[${window.innerWidth * 0.4}px] flex bg-zinc-700`} />
             </div>
         )
     }
