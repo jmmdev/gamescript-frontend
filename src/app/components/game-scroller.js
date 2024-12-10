@@ -65,8 +65,8 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         const result = [];
 
         result.push(
-           <button key={0} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] pointer-coarse:invisible" 
-           style={{visibility: scrollerRef.current && lastIndexScrolled > 0 ? 'visible' : 'hidden'}} 
+           <button key={0}
+           className={`flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] pointer-coarse:invisible pointer-fine:${scrollerRef.current && lastIndexScrolled > 0 ? "visible" : "invisible"}`} 
            onClick={() => {
                 let index;
 
@@ -90,8 +90,8 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         result.push(child);
         
         result.push(
-            <button key={2} className="flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] pointer-coarse:invisible"
-            style={{visibility: scrollerRef.current && (lastIndexScrolled + range - 1 < (scrollerGames.length-1)) ? 'visible' : 'hidden'}}
+            <button key={2}
+            className={`flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] pointer-coarse:invisible pointer-fine:${scrollerRef.current && (lastIndexScrolled + range - 1 < (scrollerGames.length-1)) > 0 ? "visible" : "invisible"}`} 
             onClick={() => {
                 let index;
 
