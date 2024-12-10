@@ -1,8 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  variants: {
+    extend: {
+
+    },
+  },
   theme: {
     extend: {
       animation: {
@@ -24,5 +31,9 @@ module.exports = {
   },
   plugins: [
     require('tailwind-scrollbar'),
+    plugin(function ({ addVariant }) {
+      addVariant("pointer-coarse", "@media (pointer: coarse)");
+      addVariant("pointer-fine", "@media (pointer: fine)");
+    }),
   ],
 }
