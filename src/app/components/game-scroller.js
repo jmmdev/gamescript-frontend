@@ -56,7 +56,9 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         useEffect(() => {
             const elementToScroll = document.getElementById(`rc-${scrollerIndex}-game-${lastIndexScrolled}`);
             if (elementToScroll)
-                elementToScroll.scrollIntoView({block: "nearest", inline: "start", behavior: "instant"});
+                setTimeout(() => {
+                    elementToScroll.scrollIntoView({block: "nearest", inline: "start", behavior: "instant"});
+                }, 0);
         }, [currentWidth])
 
         const result = [];
