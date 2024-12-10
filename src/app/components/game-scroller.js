@@ -91,7 +91,7 @@ export default function GameScroller({externalFlags, scrollerGames, scrollerInde
         
         result.push(
             <button key={2}
-            className={`flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] pointer-coarse:invisible pointer-fine:${scrollerRef.current && (lastIndexScrolled + range - 1 < (scrollerGames.length-1)) > 0 ? "visible" : "invisible"}`} 
+            className={`flex items-center justify-center w-[2.5%] text-white hover:text-[#dd202d] ${scrollerRef.current && (lastIndexScrolled + range - 1 < (scrollerGames.length-1)) > 0 ? "visible" : "invisible"} pointer-coarse:invisible`} 
             onClick={() => {
                 let index;
 
